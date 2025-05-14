@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+
+.search-icon,
+.clear-icon {
+  flex-shrink: 0;
+  cursor: pointer;
+  fill: #999;
+}
+
+#search {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  outline: none;
+}
+
+.title {
+  font-weight: bold;
+  color: #463c9d;
+  margin: 12px 0;
+  font-size: 20px;
+}
+
+
+
+.bus-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+}
+
+.bus-icon {
+  width: auto;
+  height: 32px;
+}
+
+.bus-text {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.footer-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 400px;
+  width: 100%;
+  background: white;
+  padding: 8px 16px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+
+#cancelBtn, #saveBtn {
+  width: 48%;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background: #e6e6ec;
+  color: #000;
+}
+
+#saveBtn {
+  background: #fcd34d;
+  color: #000;
+}
+
+.bus-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #facc15 transparent; 
+}
+.bus-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bus-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.bus-list::-webkit-scrollbar-thumb {
+  background-color: #facc15;
+  border-radius: 4px;
+}
+.bus-item.selected {
+  background-color: #fcd34d;
+  border: 2px solid #facc15;
+}
+

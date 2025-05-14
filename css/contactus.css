@@ -1,0 +1,47 @@
+.form-group {
+    font-family: Arial, sans-serif;
+    margin: 10px 0;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: #3d408a;
+    font-family: 'Kumbh Sans';
+    font-size:16px;
+  }
+  
+  .required {
+    color: red;
+    margin-left: 2px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px 14px;
+    height:48px;
+    font-size: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px rgba(1,0,0,0.1);
+    outline: none;
+    transition: border 0.3s ease;
+    border-width: 0px;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #6c63ff;
+  }
+  input[type="text"]::placeholder {
+    color: #121212;;
+    font-weight: 400;
+    font-size: 15px;
+  }
+  
+.contact-container{
+    padding:24px;
+}  
+
+.margin-input{
+    margin-top: -26px;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bus Stop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/busstop.css">
+  <link rel="stylesheet" href="../css/topbar.css" />
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdqHUsFj2c1O8txrE_iVKLfbIBEK2pkD4&libraries=places " defer></script>
+</head>
+<body>
+  <div class="top-bar">
+    <img id="busbackBtn" src="../assets/images/AppLogo.png" alt="Bus Icon" />
+    <div id="menuBtn" class="filter-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#2b2e83" viewBox="0 0 16 16">
+        <path stroke="black" stroke-width="0.5" fill-rule="evenodd"
+          d="M0 10.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H3V1.5a.5.5 0 0 0-1 0V10H.5a.5.5 0 0 0-.5.5M2.5 12a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5m3-6.5A.5.5 0 0 0 6 6h1.5v8.5a.5.5 0 0 0 1 0V6H10a.5.5 0 0 0 0-1H6a.5.5 0 0 0-.5.5M8 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2A.5.5 0 0 0 8 1m3 9.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H14V1.5a.5.5 0 0 0-1 0V10h-1.5a.5.5 0 0 0-.5.5m2.5 1.5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5" />
+      </svg>
+    </div>
+  </div>
+  <div id="map-container">
+<div class="search-container" style="position: relative;">
+  <input type="text" id="search-input" placeholder="Search for location">
+  <img src="../assets/images/search_icon.svg" alt="Search" class="search-img">
+</div>
+
+
+    <div id="map"></div>
+    <img id="bus-stop-marker" src="../assets/images/AppLogo.png" alt="Bus Stop Marker">
+    
+    <!-- Map Controls -->
+    <div class="map-controls">
+        <button id="map-toggle" class="control-btn" title="Toggle Map View">
+            <img src="../assets/images/satellite_layer_icon.png" height="24px" width="24px" class="fas" alt="">
+        </button>
+        <button id="current-location" class="control-btn" title="Current Location">
+            <img src="../assets/images/map_set_to_user_location.png" height="24px" width="24px" class="fas" alt="">
+        </button>
+        <button id="refresh" class="control-btn" title="Refresh">
+            <img src="../assets/images/refresh_page_icon.png" height="24px" width="24px" class="fas" alt="">
+        </button>
+        <button id="info-btn" class="control-btn" title="Info">
+            <img src="../assets/images/left_expansion_icon.svg" height="24px" width="24px" class="fas" alt="">
+        </button>
+    </div>
+
+    <!-- Location Info Box -->
+    <div id="location-info">
+        <div id="location-name">MLR Institute Of Technology...</div>
+        <div id="location-address">Dundigal, Hyderabad</div>
+    </div>
+</div>
+
+<div class="action-buttons">
+  <button id="cancel-btn" class="btn cancel-btn">Cancel</button>
+  <button id="save-btn" class="btn save-btn">Save</button>
+</div>
+
+</div>
+
+<!-- Info Modal -->
+<div id="info-modal" class="modal">
+<div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <p>Click <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Here</a> to Know How to SetUp Your BusStop!</p>
+</div>
+</div>
+
+<script src="../js/busstop.js"></script>
+</body>
+</html>
