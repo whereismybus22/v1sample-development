@@ -20,8 +20,64 @@ body, html {
   flex-direction: column;
   background: white;
   padding: 16px;
+  padding-bottom: 30px;
+  box-sizing: border-box;
   overflow: hidden;
 }
+
+.scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 8px;
+}
+
+.bus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+  background-color: white;
+  padding-bottom: 12px;
+  position: sticky;
+  z-index: 10;
+}
+
+#cancelBtn, #saveBtn {
+  width: 48%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background: #e6e6ec;
+  color: #000;
+}
+
+#saveBtn {
+  background: #fcd34d;
+  color: #000;
+}
+
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0 0;
+  border-top: 1px solid #eee;
+  background-color: white;
+  position: sticky;
+  bottom: 0;
+}
+
 
 .search-section {
   display: flex;
@@ -29,7 +85,7 @@ body, html {
   background: #f1f1f1;
   border-radius: 8px;
   padding: 8px 12px;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
   gap: 8px;
 }
 
@@ -46,16 +102,17 @@ body, html {
   background: transparent;
   font-size: 16px;
   outline: none;
+  font-family: 'Manrope',sans-serif;
 }
 
 .title {
-  font-weight: bold;
+  font-weight: 700;
   color: #463c9d;
   margin: 12px 0;
-  font-size: 20px;
+  font-size: 24px;
+  font-family: 'Manrope',sans-serif;
+
 }
-
-
 
 .bus-item {
   display: flex;
@@ -70,31 +127,33 @@ body, html {
 
 .bus-icon {
   width: auto;
-  height: 32px;
+  height: 24px;
 }
 
 .bus-text {
   flex: 1;
   text-align: center;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
+  color:#000000;
+  font-family: "Manrope",sans-serif;
 }
 
 .footer-buttons {
+  border-top: 1px solid #eee;
   position: fixed;
-  bottom: 0;
+  bottom: 10;
   left: 50%;
   transform: translateX(-50%);
   max-width: 400px;
   width: 100%;
   background: white;
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-top: 1px solid #eee;
   display: flex;
   justify-content: space-between;
   z-index: 100;
 }
-
 
 #cancelBtn, #saveBtn {
   width: 48%;
@@ -134,8 +193,12 @@ body, html {
   background-color: #facc15;
   border-radius: 4px;
 }
-.bus-item.selected {
-  background-color: #fcd34d;
-  border: 2px solid #facc15;
-}
+.bus-item {
+      cursor: pointer;
+      transition: border 0.3s;
+    }
 
+.bus-item.selected {
+      border: 2px solid #463c9d;
+      background-color: #f0f8ff;
+}

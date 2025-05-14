@@ -22,14 +22,34 @@
       </div>
     </div>
     <h2><span class="muted">Need help?</span><br><span class="bold">Contact Us</span></h2>
-    <div class="form-group contact-container">
+    <div class="form-group contact-container first-margin">
         <label for="name">Name <span class="required">*</span></label>
         <input type="text" id="name" name="name" placeholder="Enter your name" required>
     </div>
     <div class="contact-container margin-input">
         <label for="name">Phone Number <span class="required">*</span></label>
         <input type="text" id="name" name="name" placeholder="Enter your phone number" required>
-    </div>  
-  <script src=""></script>
+    </div> 
+    <div class="contact-container margin-dropdown">
+        <label for="issue">Problem type <span class="required">*</span></label>
+        <select id="issue" name="issue" >
+          <option value="" disabled selected>Select an option</option></option>
+          <option value="web">Problem with web application</option>
+          <option value="location">Problem with Device Location Access</option>
+          <option value="default">Problem with Default bus setup</option>
+          <option value="stop">Problem with Default bus stop setup</option>
+          <option value="tracking">Problem with Bus Tracking</option>
+          <option value="suggest">Suggesting a Feature</option>
+          <option value="other">Others</option>
+        </select>
+    </div>
+    <div class="contact-container margin-dropdown">
+        <label for="name">Write about it : </label>
+        <textarea id="query" name="query" rows="6" placeholder="Explain your queries and your suggestions"></textarea>
+    </div>
+    <div class="btn-center">
+        <button class="contactus-btn">Submit</button>
+    </div>      
+  <script src="../js/contactus.js"></script>
 </body>
 </html>

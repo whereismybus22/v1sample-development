@@ -17,3 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     downloadPopup.classList.add("hidden");
   });
 });
+document.getElementById('contactusButton1').addEventListener('click', function() {
+    window.location.href = '../pages/contactus.html'; 
+});
