@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mlrit = { lat: 17.595580940309862, lng: 78.44159359579915 }; 
   const map = new google.maps.Map(document.getElementById("map"), {
     center: mlrit,
-    zoom: 15,
+    zoom: 18,
     disableDefaultUI: true,
     gestureHandling: "greedy",
     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     isSatellite = !isSatellite;
     map.setMapTypeId(
       isSatellite
-        ? google.maps.MapTypeId.SATELLITE
+        ? google.maps.MapTypeId.HYBRID
         : google.maps.MapTypeId.ROADMAP
     );
     toggleBtn.querySelector("img").src = isSatellite
