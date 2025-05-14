@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Default Bus</title>
+  <link rel="stylesheet" href="../css/topbar.css" />
+  <link rel="stylesheet" href="../css/buses.css" />
+  <link rel="stylesheet" href="../css/drivercontact.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body>  
+      <div class="top-bar">
+      <img id="busbackBtn" src="../assets/images/AppLogo.png" alt="Bus Icon" />
+      <div id="menuBtn" class="filter-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#2b2e83" viewBox="0 0 16 16">
+          <path stroke="black" stroke-width="0.5" fill-rule="evenodd"
+            d="M0 10.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H3V1.5a.5.5 0 0 0-1 0V10H.5a.5.5 0 0 0-.5.5M2.5 12a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5m3-6.5A.5.5 0 0 0 6 6h1.5v8.5a.5.5 0 0 0 1 0V6H10a.5.5 0 0 0 0-1H6a.5.5 0 0 0-.5.5M8 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2A.5.5 0 0 0 8 1m3 9.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H14V1.5a.5.5 0 0 0-1 0V10h-1.5a.5.5 0 0 0-.5.5m2.5 1.5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5" />
+        </svg>
+      </div>
+    </div>
+    <div class="toggle-bar p-0.5">
+        <button id="showIncharges" class="toggle-btn active">Incharges</button>
+        <button id="showDrivers" class="toggle-btn">Drivers</button>
+      </div>
+      <div class="container">
+        <div class="search-section">
+          <i class="bi bi-search search-icon"></i>
+          <input type="text" id="search" placeholder="Search Here" />
+          <i class="bi bi-x-lg clear-icon" id="clearSearch"></i>
+        </div>
+    <div id="busInchargesDisplay">
+        <h1 class="incharges">Bus Incharges</h1>
+    </div>
+    <div id="busDriversDisplay">
+        <h1 class="incharges">Bus Drivers</h1>
+    </div>
+    <div class="scroll-area">
+        <div class="bus-cards">
+            <div id="busIncharge"></div>
+            <div id="busDrivers"></div>
+        </div>
+    </div>
+</div>
+      </div>      
+  <script src="../js/drivercontact.js"></script>
+</body>
+</html>

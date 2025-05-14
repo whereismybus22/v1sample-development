@@ -1,0 +1,189 @@
+#busIncharge {
+  width: 100%;
+  max-width: 400px;
+}
+#busDrivers{
+  width: 100%;
+  max-width: 400px;
+}
+.incharge-card {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  background: #fff;
+  border-radius: 7.6px;
+  padding: 10px 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
+  height: 60px;
+  box-sizing: border-box;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.person-icon {
+  font-size: 34.2px;
+  color: #555;
+}
+
+.incharge-name {
+  font-weight: 700;
+  color: #3d408a;
+  font-size: 16px;
+  line-height: 1.2;
+  font-family: "Kumbh Sans",sans-serif;
+}
+
+.incharge-desc {
+  font-size: 12px;
+  color: #5f5f5f;
+  line-height: 1.2;
+  font-weight:500;
+}
+
+.right {
+  display: flex;
+  gap: 14px;
+}
+
+.icon-link i {
+  font-size: 22.77px;
+  color: #5f5f5f;
+  transition: color 0.3s ease;
+}
+
+.icon-link i:hover {
+  color: #2b2e83;
+}
+.incharges{
+  color:#3d408a;
+  text-align: center;
+  font-size:28px;
+  font-weight: 600;
+  font-family: "Kumbh Sans",sans-serif;
+  margin-top: 10px;
+}
+.bus-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle-bar {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 10px;
+  background-color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 18px;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.toggle-btn.active {
+  background-color: #fcd660;
+  color: #2b2e83;
+}
+
+.toggle-btn:focus {
+  outline: none;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  height: calc(100% - 120px);
+  display: flex;
+  flex-direction: column;
+}
+.scroll-area {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 0 16px;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-area::-webkit-scrollbar {
+  display: none;
+}
+
+.toggle-bar {
+  display: flex;
+  width: 90%;
+  border-radius: 15px;
+  background-color:white;
+  border-color: #555;
+  border: solid;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 16px auto 0 auto;
+  height:40px;
+  align-items: center;
+}
+.toggle-btn {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.toggle-btn.active {
+  background-color: #fcd660;
+  color: #2b2e83;
+  font-size:18px;
+  font-weight:700;
+}
+.search-section {
+  position: sticky;
+  top: 0;
+  height: 40px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  border-bottom: 1px solid #ddd;
+  background: #f1f1f1;
+}
+
+.search-section input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+}
+
+#busDriversDisplay,
+#busInchargesDisplay {
+  padding-top: 12px;
+}

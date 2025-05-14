@@ -114,4 +114,22 @@ h2 .bold {
     font-family: "Kumbh Sans",sans-serif;
 }
   
-  
+@media (max-width: 600px) {
+  h2 .bold {
+    font-size: 30px; 
+    line-height: 1;
+  }
+  .btn {
+    width: 90%;
+  }
+  .description {
+    padding: 1rem;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .svg-wrapper {
+    max-height: 20vh; 
+  }
+}
