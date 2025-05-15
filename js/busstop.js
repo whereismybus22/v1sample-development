@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  if (localStorage.getItem("defaultBusStop")) {
-    window.location.href = "index.html";
-    return;
-  }
+ 
 
   const mlrit = { lat: 17.595580940309862, lng: 78.44159359579915 }; 
   const map = new google.maps.Map(document.getElementById("map"), {

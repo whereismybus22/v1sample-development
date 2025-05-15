@@ -10,30 +10,6 @@ body {
   overflow: hidden; /* Prevent scrolling */
 }
 
-.top-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-}
-
-#busbackBtn {
-  width: 40px;
-  height: 40px;
-}
-
-.filter-icon {
-  width: 40px;
-  height: 40px;
-}
-
 #map-container {
   position: relative;
   height: calc(100vh - 60px); /* Adjust for top bar and buttons */

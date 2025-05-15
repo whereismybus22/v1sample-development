@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -15,12 +14,14 @@ html, body {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: stretch;
     text-align: left;
-    padding: 1vh ;      
+    padding: 1vh;      
     height: 100dvh;
     box-sizing: border-box;
+    overflow-y: auto;
+    position: relative;
 }
 
 h2 {
@@ -73,7 +74,8 @@ h2 .bold {
     flex-direction: column;
     gap: 8px;
     width: 100%;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 .btn {
     padding: 10px;
@@ -107,10 +109,14 @@ h2 .bold {
     color: gray;
     text-align: center;
     font-weight: 400;
-    margin-bottom: 100px; 
-    box-shadow: rgb(201, 179, 70);
+    margin-bottom: 10px;
     font-family: "Kumbh Sans",sans-serif;
+    width: 100%;
+    padding: 0 10px;
+    display: block;
+    position: relative;
 }
+
   
 @media (max-width: 600px) {
   h2 .bold {
@@ -123,6 +129,14 @@ h2 .bold {
   .description {
     padding: 1rem;
     font-size: 14px;
+  }
+  .container {
+    padding-bottom: 20px;
+  }
+  .help {
+    margin-bottom: 15px;
+    position: relative;
+    bottom: auto;
   }
 }
 
