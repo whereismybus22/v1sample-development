@@ -1,4 +1,4 @@
-document.getElementById('menuButton').addEventListener('click', () => {
+document.getElementById('menuBtn').addEventListener('click', () => {
   const menu = document.getElementById('floatingMenu');
   menu.classList.remove('hidden');
   setTimeout(() => {
