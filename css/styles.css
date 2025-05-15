@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +18,7 @@ html, body {
     justify-content: flex-start;
     align-items: stretch;
     text-align: left;
-    padding: 1vh;      
+    padding: 1vh ;      
     height: 100dvh;
     box-sizing: border-box;
     overflow-y: auto;
@@ -29,6 +30,7 @@ h2 {
     padding: 0 1rem;
     margin-bottom: 10px;
     margin-top: 10px;
+
 }
   
 h2 .muted {
@@ -46,6 +48,7 @@ h2 .bold {
     line-height: 0.8;
     letter-spacing: -4%;
     font-size: 40px;
+    margin-bottom: 15px;
 } 
 .svg-wrapper {
     width: 100%;
@@ -53,6 +56,8 @@ h2 .bold {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 15px;
+    margin-top: 10px;
 }  
 .svg-wrapper svg {
     width: auto;
@@ -64,7 +69,7 @@ h2 .bold {
     color:#494949;
     text-align: center;
     padding: 10px 10px;
-    margin-top:2px;
+    margin-top:10px;
     font-weight: 500;
     font-family: "Kumbh Sans",sans-serif;
     line-height: 100%;
@@ -109,14 +114,14 @@ h2 .bold {
     color: gray;
     text-align: center;
     font-weight: 400;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
+    box-shadow: rgb(201, 179, 70);
     font-family: "Kumbh Sans",sans-serif;
     width: 100%;
     padding: 0 10px;
     display: block;
     position: relative;
 }
-
   
 @media (max-width: 600px) {
   h2 .bold {
@@ -130,7 +135,7 @@ h2 .bold {
     padding: 1rem;
     font-size: 14px;
   }
-  .container {
+    .container {
     padding-bottom: 20px;
   }
   .help {
