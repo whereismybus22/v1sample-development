@@ -125,3 +125,15 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   });
 });
+const searchInput = document.getElementById("search-input");
+const clearSearch = document.getElementById("clear-search");
+
+searchInput.addEventListener("input", () => {
+  clearSearch.style.display = searchInput.value ? "inline" : "none";
+});
+
+clearSearch.addEventListener("click", () => {
+  searchInput.value = "";
+  clearSearch.style.display = "none";
+  searchInput.focus();
+});

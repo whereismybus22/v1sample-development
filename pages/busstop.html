@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/topbar.css" />
   <link rel="stylesheet" href="../css/menu.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdqHUsFj2c1O8txrE_iVKLfbIBEK2pkD4&libraries=places " defer></script>
 </head>
 <body>
@@ -22,11 +23,12 @@
     </div>
   <div id="map-container">
 <div class="search-container" style="position: relative;">
+  <div class="search-wrapper">
+  <i class="bi bi-search search-icon"></i>
   <input type="text" id="search-input" placeholder="Search for location">
-  <img src="../assets/images/search_icon.svg" alt="Search" class="search-img">
+  <i class="bi bi-x-lg clear-icon" id="clear-search"></i>
 </div>
-
-
+</div>
     <div id="map"></div>
     <img id="bus-stop-marker" src="../assets/images/AppLogo.png" alt="Bus Stop Marker">
     
@@ -67,6 +69,9 @@
     <p>Click <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Here</a> to Know How to SetUp Your BusStop!</p>
 </div>
 </div>
+
+
+
 <div id="floatingMenu" class="floating-menu hidden">
   <div class="menu-header">
     <img src="../assets/images/where-is-my-bus.svg" alt="Where is my Bus?" class="menu-logo" />
@@ -137,5 +142,7 @@
   <script src="../js/menu.js"></script>
   <script src="../js/indexback.js"></script>
 <script src="../js/busstop.js"></script>
+<script src="../js/menucontactus.js"></script>
+  <script src="../js/drivercontact.js"></script>
 </body>
 </html>
