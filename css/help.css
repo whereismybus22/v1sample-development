@@ -177,20 +177,31 @@
 
 .browser-list li {
   display: grid;
-  grid-template-columns: 60px 1fr;
-  color:#5F5F5F;
+  grid-template-columns: auto 10px 1fr; 
+  align-items: baseline;
+  gap: 3px;
+  margin-bottom: 3px;
+  color: #5F5F5F;
 }
 
 .label {
   font-weight: bold;
-  text-align: left;
 }
 
+.colon {
+  text-align: center;
+  width: 10px;
+}
+.colon2 {
+  text-align: center;
+  width: 10px;
+  margin-left: 30px;
+}
 .value {
   text-align: left;
 }
-.label2 {
-  font-weight: bold;
-  text-align: right;
-  margin-right: 5px;
+
+.value2 {
+  text-align: left;
+  margin-left: 30px;
 }
