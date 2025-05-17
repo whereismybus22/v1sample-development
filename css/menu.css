@@ -95,3 +95,18 @@
   font-size: 20px;
   font-weight: 600;
 }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: flex-end; 
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
