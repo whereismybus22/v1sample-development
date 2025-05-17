@@ -169,3 +169,28 @@
     color:#181D27;
     cursor: pointer;
 }
+.browser-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.browser-list li {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  color:#5F5F5F;
+}
+
+.label {
+  font-weight: bold;
+  text-align: left;
+}
+
+.value {
+  text-align: left;
+}
+.label2 {
+  font-weight: bold;
+  text-align: right;
+  margin-right: 5px;
+}
