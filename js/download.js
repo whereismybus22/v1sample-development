@@ -51,28 +51,35 @@ document.getElementById("downloadButton").addEventListener("click", () => {
       } else {
         suggestPopup.classList.remove("hidden");
 
-const ackInstall = document.getElementById("ackok");
-const closeSuggest = document.getElementById("closeDownloadPopup");
-if (ackInstall) {
-  ackInstall.onclick = () => {
-    suggestPopup.classList.add("hidden");
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === "accepted") {
-          androidPopup.classList.remove("hidden");
-          textContent.innerHTML = "Hang on !! App Installing ...";
+        // Safe setup after popup is visible
+        const ackInstall = document.getElementById("ackSuggest");
+        const closeSuggest = document.getElementById("closeSuggestPopup");
+
+        // Ensure we only attach the listener once
+        if (ackInstall && !ackInstall.dataset.bound) {
+          ackInstall.dataset.bound = "true";
+          ackInstall.addEventListener("click", () => {
+            suggestPopup.classList.add("hidden");
+            // Retry the prompt
+            if (deferredPrompt) {
+              deferredPrompt.prompt();
+              deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === "accepted") {
+                  androidPopup.classList.remove("hidden");
+                  textContent.innerHTML = "Hang on !! App Installing ...";
+                }
+                deferredPrompt = null;
+              });
+            }
+          });
         }
-        deferredPrompt = null;
-      });
-    }
-  };
-}
-if (closeSuggest) {
-  closeSuggest.onclick = () => {
-    suggestPopup.classList.add("hidden");
-  };
-}
+
+        if (closeSuggest && !closeSuggest.dataset.bound) {
+          closeSuggest.dataset.bound = "true";
+          closeSuggest.addEventListener("click", () => {
+            suggestPopup.classList.add("hidden");
+          });
+        }
       }
       deferredPrompt = null;
     });
