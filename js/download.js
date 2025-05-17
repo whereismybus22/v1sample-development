@@ -1,21 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const downloadButton = document.getElementById("download-pwa"); // your button for PWA download
-  const downloadPopup = document.getElementById("downloadPopup");
-  const closeDownloadPopup = document.getElementById("closeDownloadPopup");
-  const acknowledgeDownload = document.getElementById("ackok");
+  const iosPopup = document.getElementById("iosDownloadPopup");
+  const androidPopup = document.getElementById("androidDownloadPopup");
+  const closeBtns = document.querySelectorAll("#closeDownloadPopup");
+  const ackButtons = document.querySelectorAll("#ackok");
   const contactButton = document.getElementById("contactusButton1");
   const textContent = document.getElementById("text-content");
-
-  // Close popup handlers
-  closeDownloadPopup.addEventListener("click", function () {
-    downloadPopup.classList.add("hidden");
+  closeBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      iosPopup?.classList.add("hidden");
+      androidPopup?.classList.add("hidden");
+    });
   });
 
-  acknowledgeDownload.addEventListener("click", function () {
-    downloadPopup.classList.add("hidden");
+  ackButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      iosPopup?.classList.add("hidden");
+      androidPopup?.classList.add("hidden");
+    });
   });
-
-  // Contact button handler
   if (contactButton) {
     contactButton.addEventListener("click", function () {
       window.location.href = "../pages/contactus.html";
@@ -23,32 +25,34 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+let deferredPrompt;
 
-let deferredPrompt; // Variable to hold the deferred prompt event
-
-// Set up the 'beforeinstallprompt' event listener once when the script loads
 window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault(); // Prevent the default mini-infobar or install prompt
-  deferredPrompt = e; // Save the event for later use
+  e.preventDefault();
+  deferredPrompt = e;
 });
 
-// Handle click event on the "download-pwa" button
 document.getElementById("downloadButton").addEventListener("click", () => {
+  const iosPopup = document.getElementById("iosDownloadPopup");
+  const androidPopup = document.getElementById("androidDownloadPopup");
+  const textContent = document.getElementById("text-content");
+
   if (isIOS()) {
-    // Redirect to help page for iPhone users
-    downloadPopup.classList.remove("hidden");
+    iosPopup.classList.remove("hidden");
   } else if (deferredPrompt) {
-    // Show the prompt if it's available
-    deferredPrompt.prompt(); // Show the PWA install prompt
+    deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === "accepted") {
-        console.log("User accepted the PWA prompt");
-        document.getElementById("text-content").innerHTML =
-          "Hang on !!  App Installing ...";
+        androidPopup.classList.remove("hidden");  //Android installation popup
+        textContent.innerHTML = "Hang on !! App Installing ...";
       } else {
         console.log("User dismissed the PWA prompt");
       }
-      deferredPrompt = null; // Clear the deferred prompt after use
+      deferredPrompt = null;
     });
-  } 
+  }
 });
+
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
