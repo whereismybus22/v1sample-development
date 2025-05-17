@@ -6,39 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactButton = document.getElementById("contactusButton1");
   const textContent = document.getElementById("text-content");
 
-let deferredPrompt = null;
-
-// Listen for beforeinstallprompt event to save it
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-});
-
-  downloadButton.addEventListener("click", function (e) {
-
-    if (isIOS()) {
-      // Show your custom popup on iOS instead of native prompt
-      downloadPopup.classList.remove("hidden");
-      // Alternatively you could redirect to help page:
-      // window.location = '/pwaInstallation/help.html';
-    } else if (deferredPrompt) {
-      // Show native install prompt for Android or supported platforms
-      deferredPrompt.prompt();
-
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === "accepted") {
-          console.log("User accepted the PWA prompt");
-          if (textContent) {
-            textContent.innerHTML = 'Hang on !!  App Installing ...';
-          }
-        } else {
-          console.log("User dismissed the PWA prompt");
-        }
-        deferredPrompt = null;
-      });
-    } 
-  });
-
   // Close popup handlers
   closeDownloadPopup.addEventListener("click", function () {
     downloadPopup.classList.add("hidden");
@@ -54,4 +21,34 @@ window.addEventListener('beforeinstallprompt', (e) => {
       window.location.href = "../pages/contactus.html";
     });
   }
+});
+
+
+let deferredPrompt; // Variable to hold the deferred prompt event
+
+// Set up the 'beforeinstallprompt' event listener once when the script loads
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault(); // Prevent the default mini-infobar or install prompt
+  deferredPrompt = e; // Save the event for later use
+});
+
+// Handle click event on the "download-pwa" button
+document.getElementById("downloadButton").addEventListener("click", () => {
+  if (isIOS()) {
+    // Redirect to help page for iPhone users
+    downloadPopup.classList.remove("hidden");
+  } else if (deferredPrompt) {
+    // Show the prompt if it's available
+    deferredPrompt.prompt(); // Show the PWA install prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === "accepted") {
+        console.log("User accepted the PWA prompt");
+        document.getElementById("text-content").innerHTML =
+          "Hang on !!  App Installing ...";
+      } else {
+        console.log("User dismissed the PWA prompt");
+      }
+      deferredPrompt = null; // Clear the deferred prompt after use
+    });
+  } 
 });
