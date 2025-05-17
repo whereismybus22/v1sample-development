@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeBtns = document.querySelectorAll("#closeDownloadPopup");
   const ackButtons = document.querySelectorAll("#ackok");
   const contactButton = document.getElementById("contactusButton1");
+  const helpPopup = document.getElementById("helpPopup");
   const textContent = document.getElementById("text-content");
   closeBtns.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -50,6 +51,8 @@ document.getElementById("downloadButton").addEventListener("click", () => {
       }
       deferredPrompt = null;
     });
+  } else {
+    helpPopup.classList.remove("hidden");
   }
 });
 
