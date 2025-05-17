@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const ackButtons = document.querySelectorAll("#ackok");
   const contactButton = document.getElementById("contactusButton1");
   const helpPopup = document.getElementById("helpPopup");
+  const suggestPopup = document.getElementById("suggestPopup");
   const textContent = document.getElementById("text-content");
+  
   closeBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       iosPopup?.classList.add("hidden");
@@ -47,7 +49,30 @@ document.getElementById("downloadButton").addEventListener("click", () => {
         androidPopup.classList.remove("hidden");  //Android installation popup
         textContent.innerHTML = "Hang on !! App Installing ...";
       } else {
-        console.log("User dismissed the PWA prompt");
+        suggestPopup.classList.remove("hidden");
+
+const ackInstall = document.getElementById("ackok");
+const closeSuggest = document.getElementById("closeDownloadPopup");
+if (ackInstall) {
+  ackInstall.onclick = () => {
+    suggestPopup.classList.add("hidden");
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === "accepted") {
+          androidPopup.classList.remove("hidden");
+          textContent.innerHTML = "Hang on !! App Installing ...";
+        }
+        deferredPrompt = null;
+      });
+    }
+  };
+}
+if (closeSuggest) {
+  closeSuggest.onclick = () => {
+    suggestPopup.classList.add("hidden");
+  };
+}
       }
       deferredPrompt = null;
     });
