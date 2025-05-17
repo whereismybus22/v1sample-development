@@ -1,12 +1,3 @@
-let deferredPrompt = null;
-
-// Listen for beforeinstallprompt event to save it
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-});
-
-
 document.addEventListener("DOMContentLoaded", function () {
   const downloadButton = document.getElementById("download-pwa"); // your button for PWA download
   const downloadPopup = document.getElementById("downloadPopup");
@@ -15,8 +6,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactButton = document.getElementById("contactusButton1");
   const textContent = document.getElementById("text-content");
 
+let deferredPrompt = null;
+
+// Listen for beforeinstallprompt event to save it
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+});
+
   downloadButton.addEventListener("click", function (e) {
-    e.preventDefault();
 
     if (isIOS()) {
       // Show your custom popup on iOS instead of native prompt
@@ -38,8 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         deferredPrompt = null;
       });
-    } else if (textContent && textContent.innerHTML === 'Hang on !!  App Installing ...') {
-      alert('App is Installing ... or already Installed !! \n Please check your device App Screen.');
     } 
   });
 
