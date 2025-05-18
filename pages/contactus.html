@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8" />c
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Install Web App</title>
   <link
@@ -29,28 +29,32 @@
       </div>
     </div>
     <h2><span class="muted">Need help?</span><br><span class="bold">Contact Us</span></h2>
-    <div class="form-group contact-container first-margin">
-      <label for="userName">Name <span class="required">*</span></label>
-      <input type="text" id="userName" name="name" placeholder="Enter your name" required>
-    </div>
-    <div class="contact-container margin-input">
-      <label for="phone">Phone Number <span class="required">*</span></label>
-      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
-    </div>
-    <div class="contact-container margin-dropdown">
-      <label for="issue">Problem type <span class="required">*</span></label>
-      <select id="issue" name="issue">
-        <option value="" disabled selected>Select an option</option>
-        </option>
-        <option value="web">Problem with web application</option>
-        <option value="location">Problem with Device Location Access</option>
-        <option value="default">Problem with Default bus setup</option>
-        <option value="stop">Problem with Default bus stop setup</option>
-        <option value="tracking">Problem with Bus Tracking</option>
-        <option value="suggest">Suggesting a Feature</option>
-        <option value="other">Others</option>
-      </select>
-    </div>
+
+   <form id="contactForm" onsubmit="return sendContactForm(event)">
+  <div class="form-group contact-container first-margin">
+    <label for="userName">Name <span class="required">*</span></label>
+    <input type="text" id="userName" name="name" placeholder="Enter your name" required>
+  </div>
+
+  <div class="contact-container margin-input">
+    <label for="phone">Phone Number <span class="required">*</span></label>
+    <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+  </div>
+
+  <div class="contact-container margin-dropdown">
+    <label for="issue">Problem type <span class="required">*</span></label>
+    <select id="issue" name="issue" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="web">Problem with web application</option>
+      <option value="location">Problem with Device Location Access</option>
+      <option value="default">Problem with Default bus setup</option>
+      <option value="stop">Problem with Default bus stop setup</option>
+      <option value="tracking">Problem with Bus Tracking</option>
+      <option value="suggest">Suggesting a Feature</option>
+      <option value="other">Others</option>
+    </select>
+  </div>
+  
     <div class="contact-container margin-dropdown">
       <label for="name">Write about it : </label>
       <textarea id="query" name="query" rows="6" placeholder="Explain your queries and your suggestions"></textarea>
@@ -59,6 +63,7 @@
       <button class="contactus-btn" onclick="sendContactForm()">Submit</button>
     </div>
     </div>
+    </form>
     <div id="floatingMenu" class="floating-menu hidden">
       <div class="menu-header">
         <img src="../assets/images/where-is-my-bus.svg" alt="Where is my Bus?" class="menu-logo" />
