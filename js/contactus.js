@@ -3,6 +3,11 @@ document.getElementById('contactusButton').addEventListener('click', function() 
 });
 
 
+ (function() {
+    emailjs.init("psaitharun33@gmail.com"); // Replace with your EmailJS User ID
+})();
+
+
     function getMobileOS() {
       const userAgent = navigator.userAgent || navigator.vendor || window.opera;
       if (/android/i.test(userAgent)) return "Android";
@@ -32,19 +37,7 @@ document.getElementById('contactusButton').addEventListener('click', function() 
         'Name : ' + name + '\n' +
         'Mobile Number : ' + phone + '\n' +
         'Description : ' + description + '\n';
- const subject = issue;
- let body = 'College : ' + college + '\n' +
-            'Mobile OS : ' + os + '\n' +
-            'Name : ' + name + '\n' +
-            'Mobile Number : ' + phone + '\n';
 
- if (description.length > 0) {
-   body += 'Description : ' + description + '\n';
- }
-
-
- // Using EmailJS to send email
- const mailtoLink = `mailto:query.whereismybus@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
- window.location.href = mailtoLink;  // triggers email client
-
-}
+      const mailtoLink = `mailto:query.whereismybus@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+    });
