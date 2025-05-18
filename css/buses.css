@@ -9,7 +9,6 @@ body, html {
   width: 100%;
   font-family: Arial, sans-serif;
   background: #f9f9f9;
-  overflow-x: hidden;
 }
 
 .container {
@@ -22,7 +21,6 @@ body, html {
   padding: 16px;
   padding-bottom: 30px;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 .scroll-area {
@@ -196,7 +194,7 @@ body, html {
 .bus-item {
       cursor: pointer;
       transition: border 0.3s;
-    }
+}
 
 .bus-item.selected {
       border: 2px solid #463c9d;
