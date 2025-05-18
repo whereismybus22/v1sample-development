@@ -58,7 +58,7 @@
   font-family: "Manrope",sans-serif;
   font-size: 18px;
   color:#252525;
-  margin-left:2px;
+  margin-left:15px;
 }
 .secondarymenu-items li {
    display: flex;
@@ -72,8 +72,8 @@
 .secondarymenu-items p{
   font-family:"Kumbh Sans",sans-serif;;
   font-size: 17px;
-  font-weight:500;
   color:#252525;
+  margin-left: 8px;
 }
 .socials {
   margin-top: 1.5rem;
@@ -94,4 +94,19 @@
   font-family: "Kumbh Sans",sans-serif;
   font-size: 20px;
   font-weight: 600;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: flex-end; 
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
 }

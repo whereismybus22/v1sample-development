@@ -169,3 +169,39 @@
     color:#181D27;
     cursor: pointer;
 }
+.browser-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.browser-list li {
+  display: grid;
+  grid-template-columns: auto 10px 1fr; 
+  align-items: baseline;
+  gap: 3px;
+  margin-bottom: 3px;
+  color: #5F5F5F;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.colon {
+  text-align: center;
+  width: 10px;
+}
+.colon2 {
+  text-align: center;
+  width: 10px;
+  margin-left: 30px;
+}
+.value {
+  text-align: left;
+}
+
+.value2 {
+  text-align: left;
+  margin-left: 30px;
+}

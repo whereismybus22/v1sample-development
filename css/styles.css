@@ -6,12 +6,16 @@
 }
   
 html, body {
-    height: 100vh;
+    height: 100dvh;
     font-family: 'Kumbh Sans', 'Poppins', sans-serif;
     background-color: #fff;
     color: #333;
     overflow: hidden;
 }  
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -21,14 +25,17 @@ html, body {
     padding: 1vh ;      
     height: 100dvh;
     box-sizing: border-box;
-    overflow-y: auto;
+    overflow: hidden;
     position: relative;
+}
+.container {
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
 }
 
 h2 {
     text-align: left;
     padding: 0 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     margin-top: 10px;
 }
   
@@ -47,16 +54,16 @@ h2 .bold {
     line-height: 0.8;
     letter-spacing: -4%;
     font-size: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 } 
 .svg-wrapper {
     width: 100%;
-    max-height: 30vh;
+    max-height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-top: 10px;
 }  
 .svg-wrapper svg {
     width: auto;
@@ -67,19 +74,19 @@ h2 .bold {
     font-size: 16px;
     color:#494949;
     text-align: center;
-    padding: 10px 10px;
-    margin-top:10px;
+    padding: 5px 5px;
+    margin-top:5px;
     font-weight: 500;
     font-family: "Kumbh Sans",sans-serif;
     line-height: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 .button-group {
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     padding-bottom: 10px;
 }
 .btn {
@@ -109,7 +116,6 @@ h2 .bold {
     font-family: "Kumbh Sans",sans-serif;
 }
 .help {
-    margin-top: 3px;
     font-size: 0.9rem;
     color: gray;
     text-align: center;
@@ -148,5 +154,14 @@ h2 .bold {
 @media (max-width: 768px) and (orientation: landscape) {
   .svg-wrapper {
     max-height: 20vh; 
+  }
+}
+@media (max-height: 650px) {
+  html, body {
+    overflow: auto; /* Allow scroll on small screens */
+  }
+
+  .container {
+    overflow-y: auto;
   }
 }
