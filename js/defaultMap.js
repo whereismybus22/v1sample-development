@@ -1,4 +1,5 @@
-
+let selectedBusId = null;
+let isTracking = false;
       window.addEventListener("load", function () {
         document.getElementById("loader").style.display = "none";
       });
@@ -76,7 +77,10 @@
           // Update device location marker
           await updateDeviceLocationMarker();
 
-          if (showCompleteMap) {
+          if (isTracking && selectedBusId && busData[selectedBusId]) {
+            const { lat, lng } = busData[selectedBusId];
+            map.flyTo([lat, lng], 19); // Always keep zoom at 19
+          } else if (showCompleteMap) {
             fitMapToMarkers(busData);
           }
         } catch (error) {
@@ -181,11 +185,16 @@
           const marker = L.marker([lat, lng], { icon: markerIcon })
             .bindPopup(`<b>${name}</b>`)
             .on("click", function () {
+              selectedBusId = key; // e.g., "bus1", "bus2", etc.
+              isTracking = true;
               showCompleteMap = false;
-              map.flyTo(this.getLatLng(), 19);
-              document
-                .getElementById("recommendation-btn")
-                .style.display = "block";
+            
+              // Immediately fly to current position
+              const latlng = this.getLatLng();
+              map.flyTo(latlng, 19); // Zoom level 19
+            
+              // Show stop tracking button
+              document.getElementById("recommendation-btn").style.display = "block";
             });
 
           // Add marker to the cluster group
