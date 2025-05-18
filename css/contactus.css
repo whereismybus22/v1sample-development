@@ -177,12 +177,7 @@
     padding-bottom: 0px; 
   }
 }
-@media (max-height: 700px) {
-  .container {
-    overflow-y: auto;
-    padding-bottom: 20px;
-  }
-} 
+
 @media (display-mode: standalone) {
   .contactus-btn {
     margin-bottom: env(safe-area-inset-bottom, 8px); 
@@ -190,6 +185,12 @@
 
   .container {
     padding-bottom: env(safe-area-inset-bottom, 12px);
+  }
+}
+@media (max-height: 700px) {
+  .container {
+    overflow-y: auto;
+    padding-bottom: 80px; /* extra space for Submit */
   }
 }
 
