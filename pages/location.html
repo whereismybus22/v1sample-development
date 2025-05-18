@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/location.css" />
+  <link rel="stylesheet" href="../css/download.css" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/topbar.css" />
   <link rel="stylesheet" href="../css/help.css" />
@@ -32,12 +33,13 @@
     </div>
     <p class="description">We need your device's location to show real-time bus tracking and arrival times.</p>
     <div class="button-group">
-      <button class="btn download" id="downloadButton">Allow Location Access</button>
+      <button class="btn download" id="locationButton">Allow Location Access</button>
       <button class="btn skip" id="skipButton2">Skip for Now</button>
     </div>
     <p class="help">
       <a href="#" id="helpButton" class="help">Click here for help</a></p>
   </div>
+
 <div id="helpPopup" class="help-popup hidden">
   <div class="popup-content">
      <div class="popup-content-inner">
@@ -72,6 +74,18 @@
 </div>
 </div>
   </div>
+  <div id="locationPopup" class="help-popup hidden">
+  <div class="popup-content">
+    <div class="popup-content-inner">
+      <button class="countdown-timer" id="countdownCircle">5</button>
+      <h2 class="dheading2">Alert !</h2>
+       <p class="listitems1">Please don't Click on "Never Allow" <br> as it blocks location access permanently !</p>
+      <div class="okcontainer">
+       <button id="ackok">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
   <div id="floatingMenu" class="floating-menu hidden">
   <div class="menu-header">
     <img src="../assets/images/where-is-my-bus.svg" alt="Where is my Bus?" class="menu-logo" />

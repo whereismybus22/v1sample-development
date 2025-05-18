@@ -1,5 +1,4 @@
 
-
 .svg-wrapper1 {
     width: 100%;
     max-height: 36vh;
@@ -9,3 +8,20 @@
     margin-bottom: 5px;
     margin-top: 10px;
 }  
+.countdown-timer {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background-color: #e74c3c;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
