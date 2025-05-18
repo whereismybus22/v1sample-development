@@ -25,3 +25,7 @@
   justify-content: center;
   z-index: 10;
 }
+.alert{
+    color: #e74c3c;
+    font-weight: bold;
+}
