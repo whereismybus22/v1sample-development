@@ -13,7 +13,7 @@ let countdownInterval;
 locationButton.addEventListener("click", () => {
   locationPopup.classList.remove("hidden");
 
-  let countdown = 10;
+  let countdown = 5;
   countdownCircle.textContent = countdown;
   countdownInterval = setInterval(() => {
     countdown--;
@@ -22,7 +22,7 @@ locationButton.addEventListener("click", () => {
       clearInterval(countdownInterval);
       locationPopup.classList.add("hidden");
     }
-  }, 1000);
+  }, 2000);
 });
 acknowledgeBtn.addEventListener("click", () => {
   clearInterval(countdownInterval); 
