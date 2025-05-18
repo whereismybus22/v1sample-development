@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const androidHelpPopup = document.getElementById("andriodhelpPopup");
   const androidClosePopup = document.getElementById("androidClosePopup");
   const contactUsButtons = document.querySelectorAll("#contactusButton");
+  const  helpPopupButton = document.querySelectorAll("helpPopup");
 
 
   let countdownInterval;
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
               document.getElementById("andriodhelpPopup").classList.remove("hidden");
             }
           } else {
-            alert("Contact us");
+            document.getElementById("helpPopupButton").classList.remove("hidden");
           }
         }
       );
