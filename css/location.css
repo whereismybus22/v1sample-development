@@ -41,3 +41,13 @@
   font-size: 12px;
   margin-right: 10px;
 }
+.classlists li{
+  margin-bottom: 5px;
+  color:#5F5F5F;
+  list-style-type:numeric;
+}
+.classlists li::marker {
+  color:#3D408A;
+  font-weight: bold;
+  margin-right: 2px;
+}

@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="../css/topbar.css" />
   <link rel="stylesheet" href="../css/help.css" />
   <link rel="stylesheet" href="../css/menu.css" />
-  
 </head>
 <body>
   <body>
@@ -260,15 +259,23 @@
      <div class="popup-content-inner">
     <button class="close-btn" id="closePopup">×</button>
     <h2 class="heading">Help &<br>Support</h2>
-    <p class="sub-text">Having trouble accessing or installing the app?<br>
+    <p class="sub-text">Having trouble accessing or installing the app?<br></p>
     <p class="sub-text mt-2">Lets's get you back on track!</p>
     <ol>
       <li class="head"><strong>Use a Recommended Browser</strong><br>
         <p class="listitems">For the best experience, please use following browsers:</p>
-        <ul class="listitems">
-          <li><strong>Android:</strong> Google Chrome</li>
-          <li><strong>IOS:</strong> Safari or Google Chrome</li>
-        </ul>
+        <ul class="browser-list">
+  <li>
+    <span class="label">Android</span>
+    <span class="colon">:</span>
+    <span class="value">Google Chrome</span>
+  </li>
+  <li>
+    <span class="label">IOS</span>
+    <span class="colon2">:</span>
+    <span class="value2">Safari or Google Chrome</span>
+  </li>
+</ul>
       </li>
       <li class="head"><strong>Update Your Browser</strong><br>
        <p class="listitems">Ensure your browser is up-to-date to avoid compatability issues.</p>
@@ -288,7 +295,63 @@
   </div>
 </div>
 </div>
+
+
+<div id="IOSlocationhelpPopup" class="help-popup hidden">
+  <div class="popup-content">
+     <div class="popup-content-inner">
+    <button class="close-btn" id="IOSclosePopup">×</button>
+    <h2 class="heading">Help &<br>Support</h2>
+    <p class="sub-text">IOS You blocked location access !<br>
+    <p class="sub-text mt-2">Lets's get you back on track !</p>
+    <ul class="classlists">
+      <li>In the top-right corner of your browser, click on the three dots ( ⋮ )</li>
+      <li>Select Settings.</li>
+      <li>Scroll down and click on Site settings</li>
+      <li>Click on Location</li>
+      <li>Under the Blocked section, find and click on mlid-whereismybus.vercel.app.</li>
+      <li>Finally, click on the Allow button to grant location access.</li>
+    </ul>
+    <div class="support-section">
+  <div class="support-texts">
+    <p class="still-need">Still Need Help?</p>
+    <p class="support-text">If you're still experiencing issues, we're here to assist you.</p>
   </div>
+  <button class="contact-btn" id="contactusButton">Contact Us</button>
+</div>
+  </div>
+</div>
+</div>
+</div>
+
+<div id="andriodhelpPopup" class="help-popup hidden">
+  <div class="popup-content">
+     <div class="popup-content-inner">
+    <button class="close-btn" id="androidclosePopup">×</button>
+    <h2 class="heading">Help &<br>Support</h2>
+    <p class="sub-text">You blocked location access !<br>
+    <p class="sub-text mt-2">Lets's get you back on track !</p>
+    <ul class="classlists">
+      <li>In the top-right corner of your browser, click on the three dots ( ⋮ )</li>
+      <li>Select Settings.</li>
+      <li>Scroll down and click on Site settings</li>
+      <li>Click on Location</li>
+      <li>Under the Blocked section, find and click on mlid-whereismybus.vercel.app.</li>
+      <li>Finally, click on the Allow button to grant location access.</li>
+    </ul>
+    <div class="support-section">
+  <div class="support-texts">
+    <p class="still-need">Still Need Help?</p>
+    <p class="support-text">If you're still experiencing issues, we're here to assist you.</p>
+  </div>
+  <button class="contact-btn" id="contactusButton">Contact Us</button>
+</div>
+  </div>
+</div>
+</div>
+</div>
+
+
   <div id="locationPopup" class="help-popup hidden">
   <div class="popup-content">
     <div class="popup-content-inner">
@@ -314,6 +377,7 @@
     </div>
   </div>
 </div>
+
 
 
   <div id="floatingMenu" class="floating-menu hidden">

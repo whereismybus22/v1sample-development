@@ -7,10 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const countdownCircle = document.getElementById("countdownCircle");
   const acknowledgeBtn = document.getElementById("ackok");
   const locationButton = document.getElementById("locationButton");
-
   const locationSuccess = document.getElementById("locationSuccess");
   const successClosePopup = document.getElementById("successClosePopup");
   const successAcknowledge = document.querySelector("#locationSuccess #ackSuccessok");
+  const iosHelpPopup = document.getElementById("IOSlocationhelpPopup");
+  const iosClosePopup = document.getElementById("IOSclosePopup");
+  const androidHelpPopup = document.getElementById("andriodhelpPopup");
+  const androidClosePopup = document.getElementById("androidClosePopup");
+  const contactUsButtons = document.querySelectorAll("#contactusButton");
+
 
   let countdownInterval;
 
@@ -27,7 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         function (error) {
           if (error.code === error.PERMISSION_DENIED) {
-            alert("Denied !");
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+           if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+             document.getElementById("IOSlocationhelpPopup").classList.remove("hidden");
+            } else {
+              document.getElementById("andriodhelpPopup").classList.remove("hidden");
+            }
           } else {
             alert("Contact us");
           }
@@ -59,36 +69,30 @@ document.addEventListener("DOMContentLoaded", function () {
     locationPopup.classList.add("hidden");
     requestGeolocation();
   });
+successClosePopup.addEventListener("click", function () {
+  locationSuccess.classList.add("hidden");
+  window.location.href = "/index.html";
+});
 
-  successClosePopup.addEventListener("click", function () {
-    locationSuccess.classList.add("hidden");
-  });
+successAcknowledge.addEventListener("click", function () {
+  locationSuccess.classList.add("hidden");
+  window.location.href = "/index.html"; 
+});
+  if (iosClosePopup) {
+    iosClosePopup.addEventListener("click", function () {
+      iosHelpPopup.classList.add("hidden");
+    });
+  }
+  if (androidClosePopup) {
+    androidClosePopup.addEventListener("click", function () {
+      androidHelpPopup.classList.add("hidden");
+    });
+  }
 
-  successAcknowledge.addEventListener("click", function () {
-    locationSuccess.classList.add("hidden");
+contactUsButtons.forEach(button => {
+  button.addEventListener("click", function () {
+    window.location.href = "../pages/contactus.html";
   });
 });
 
-
-  
-
-
-
-  /* if (!navigator.geolocation) {
-      window.location.href = '../pages/tutorial.html'; 
-      return;
-    }
-  
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const coords = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        };
-        localStorage.setItem("userLocation", JSON.stringify(coords));
-        window.location.href = '../pages/tutorial.html'; 
-    },
-      () => {
-        window.location.href = '../pages/tutorial.html'; 
-    }
-    );*/
+});
