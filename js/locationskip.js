@@ -17,10 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactUsButtons = document.querySelectorAll("#contactusButton");
   const  helpPopupButton = document.querySelectorAll("helpPopup");
 
-
   let countdownInterval;
+function showLoader() {
+  document.getElementById("loadingOverlay").classList.remove("hidden");
+}
 
+function hideLoader() {
+  document.getElementById("loadingOverlay").classList.add("hidden");
+}
   function requestGeolocation() {
+    showLoader();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function (position) {
@@ -29,9 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
             longitude: position.coords.longitude,
           };
           localStorage.setItem("userDeviceLocation", JSON.stringify(coords));
+          hideLoader();
           locationSuccess.classList.remove("hidden");
         },
         function (error) {
+          hideLoader();
           if (error.code === error.PERMISSION_DENIED) {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
@@ -45,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       );
     } else {
+      hideLoader();
       alert("Geolocation is not supported by this browser.");
     }
   }
