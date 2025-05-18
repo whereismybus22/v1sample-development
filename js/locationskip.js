@@ -1,34 +1,74 @@
-document.getElementById('skipButton2').addEventListener('click', function() {
-    window.location.href = '../pages/tutorial.html'; 
+document.getElementById('skipButton2').addEventListener('click', function () {
+  window.location.href = '../pages/tutorial.html';
 });
 
 document.addEventListener("DOMContentLoaded", function () {
   const locationPopup = document.getElementById("locationPopup");
-const countdownCircle = document.getElementById("countdownCircle");
-const acknowledgeBtn = document.getElementById("ackok");
-const locationButton = document.getElementById("locationButton");
+  const countdownCircle = document.getElementById("countdownCircle");
+  const acknowledgeBtn = document.getElementById("ackok");
+  const locationButton = document.getElementById("locationButton");
 
-let countdownInterval;
+  const locationSuccess = document.getElementById("locationSuccess");
+  const successClosePopup = document.getElementById("successClosePopup");
+  const successAcknowledge = document.querySelector("#locationSuccess #ackSuccessok");
 
-locationButton.addEventListener("click", () => {
-  locationPopup.classList.remove("hidden");
+  let countdownInterval;
 
-  let countdown = 10;
-  countdownCircle.textContent = countdown;
-  countdownInterval = setInterval(() => {
-    countdown--;
-    countdownCircle.textContent = countdown;
-    if (countdown <= 0) {
-      clearInterval(countdownInterval);
-      locationPopup.classList.add("hidden");
+  function requestGeolocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          const coords = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          };
+          localStorage.setItem("userDeviceLocation", JSON.stringify(coords));
+          locationSuccess.classList.remove("hidden");
+        },
+        function (error) {
+          if (error.code === error.PERMISSION_DENIED) {
+            alert("Denied !");
+          } else {
+            alert("Contact us");
+          }
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
     }
-  }, 1000);
+  }
+
+  locationButton.addEventListener("click", () => {
+    locationPopup.classList.remove("hidden");
+
+    let countdown = 10;
+    countdownCircle.textContent = countdown;
+    countdownInterval = setInterval(() => {
+      countdown--;
+      countdownCircle.textContent = countdown;
+      if (countdown <= 0) {
+        clearInterval(countdownInterval);
+        locationPopup.classList.add("hidden");
+        requestGeolocation();
+      }
+    }, 1000);
+  });
+
+  acknowledgeBtn.addEventListener("click", () => {
+    clearInterval(countdownInterval);
+    locationPopup.classList.add("hidden");
+    requestGeolocation();
+  });
+
+  successClosePopup.addEventListener("click", function () {
+    locationSuccess.classList.add("hidden");
+  });
+
+  successAcknowledge.addEventListener("click", function () {
+    locationSuccess.classList.add("hidden");
+  });
 });
-acknowledgeBtn.addEventListener("click", () => {
-  clearInterval(countdownInterval); 
-  locationPopup.classList.add("hidden"); 
-});
-});
+
 
   
 
