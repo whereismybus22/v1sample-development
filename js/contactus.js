@@ -1,5 +1,5 @@
 if (window.matchMedia('(display-mode: standalone)').matches) {
-  document.querySelector('.container').style.paddingBottom = 'env(safe-area-inset-bottom, 6px)';
+  document.querySelector('.container').style.paddingBottom = 'env(safe-area-inset-bottom, 3px)';
 }
 
 document.getElementById('contactusButton').addEventListener('click', function() {
