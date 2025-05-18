@@ -1,0 +1,11 @@
+
+
+.svg-wrapper1 {
+    width: 100%;
+    max-height: 36vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}  
