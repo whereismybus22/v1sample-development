@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
           } else {
             alert("Contact us");
           }
+        },
+        {
+          timeout: 5000 // 5 seconds
         }
       );
     } else {
