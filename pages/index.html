@@ -26,7 +26,7 @@
     </div> -->
     <div id="topbar-container"></div>
     <script>
-      fetch("topBar.html")
+      fetch("../components/topBar.html")
         .then(res => res.text())
         .then(data => {
           document.getElementById("topbar-container").innerHTML = data;
