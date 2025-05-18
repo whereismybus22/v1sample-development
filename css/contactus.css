@@ -1,6 +1,27 @@
+.top-bar2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    position: fixed;
+  }
+  
+  .top-bar2 img {
+    width: 32px;
+    height: 36px;
+    object-fit: contain;
+  }
+
+.container{
+  margin-top: 50px;
+}
 .form-group {
     font-family: 'Manrope', sans-serif;
-    margin: 10px 0;
+    margin: 10px;
   }
   
   label {
@@ -129,6 +150,7 @@
     font-size:16px;
     font-weight: 500;
     color: #000000;
+    margin: 20px auto 0;
 }
 .btn-center{
     align-items: center;
@@ -140,4 +162,13 @@
 }
 .text-place{
     color:#bebcbc;
+}
+@media (max-width: 600px) {
+  .contactus-btn {
+    margin-bottom: 0;
+  }
+
+  .contact-container {
+    padding-bottom: 16px; 
+  }
 }
