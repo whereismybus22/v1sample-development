@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+  if (localStorage.getItem("defaultBusStop")) {
+    window.location.href = "defaultMap.html";
+    return;
+  }
  
 
   const mlrit = { lat: 17.595580940309862, lng: 78.44159359579915 }; 
@@ -121,7 +125,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const pos = marker.getPosition();
     localStorage.setItem(
       "defaultBusStop",
-      JSON.stringify({ lat: pos.lat(), lng: pos.lng() })
+      JSON.stringify({ lat: pos.lat(), lng: pos.lng() }),
+      window.location.href = "defaultMap.html"
     );
   });
 });
