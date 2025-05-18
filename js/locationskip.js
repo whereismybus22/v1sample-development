@@ -22,7 +22,7 @@ locationButton.addEventListener("click", () => {
       clearInterval(countdownInterval);
       locationPopup.classList.add("hidden");
     }
-  }, 2000);
+  }, 1000);
 });
 acknowledgeBtn.addEventListener("click", () => {
   clearInterval(countdownInterval); 
