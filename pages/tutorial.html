@@ -23,7 +23,7 @@
         </svg>
       </div>
     </div>
-  <div class="container" style="pointer-events: none; user-select: none; margin-top: 55px;" >
+  <div class="container" style="margin-top: 55px;" >
     <h2><span class="muted">Here's a</span><br><span class="bold">Quick<br>Tutorial</span></h2>
    <div class="logo-video-wrapper">
   <div class="logos">
@@ -37,7 +37,7 @@
 </svg>
     </div>
   </div>
-  <div class="video-thumbnail">
+  <div id="videoTrigger" class="video-thumbnail">
       <svg width="332" height="232" viewBox="0 0 332 232" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_293_20987)">
 <rect x="12" y="8" width="308" height="208" rx="20" fill="#E5E5EA"/>
@@ -61,14 +61,12 @@
 </div>
     <p class="description">A tutorial demonstrating how to use <span class="highlight">'Where is my Bus' </span>web app</p>
     <div class="button-group">
-      <button class="btn download" id="downloadButton">Open Video</button>
+      <button class="btn download" id="openVideoBtn">Open Video</button>
       <button class="btn skip" id="skiptobusesButton">Skip for Now</button>
     </div>
     <p class="help">
       <a href="#" id="helpButton" class="help">Click here for help</a></p>
   </div>
-
-
 
 <div id="helpPopup" class="help-popup hidden">
   <div class="popup-content">
