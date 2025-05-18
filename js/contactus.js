@@ -1,3 +1,7 @@
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  document.querySelector('.container').style.paddingBottom = 'env(safe-area-inset-bottom, 6px)';
+}
+
 document.getElementById('contactusButton').addEventListener('click', function() {
     window.location.href = '../pages/contactus.html'; 
 });

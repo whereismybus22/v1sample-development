@@ -18,7 +18,8 @@
 
 .container{
   margin-top: 50px;
-   padding-bottom: env(safe-area-inset-bottom, 16px);
+   padding-bottom: env(safe-area-inset-bottom, 0px);
+
 }
 .form-group {
     font-family: 'Manrope', sans-serif;
@@ -61,8 +62,9 @@
   }
   
 .contact-container{
-    padding:24px;
+    padding: 24px 24px 0 24px; 
 }  
+
 
 .margin-input{
     margin-top: -25px;
@@ -178,11 +180,16 @@
 @media (max-height: 700px) {
   .container {
     overflow-y: auto;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
   }
-}
+} 
 @media (display-mode: standalone) {
   .contactus-btn {
-    margin-bottom: 8px;
+    margin-bottom: env(safe-area-inset-bottom, 8px); 
+  }
+
+  .container {
+    padding-bottom: env(safe-area-inset-bottom, 12px);
   }
 }
+
