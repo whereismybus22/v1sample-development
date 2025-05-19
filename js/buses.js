@@ -4,24 +4,35 @@ const clearSearch = document.getElementById("clearSearch");
 const saveBtn = document.getElementById("saveBtn");
 const cancelBtn = document.getElementById("cancelBtn");
 
-const busRoutes = Array.from({ length: 30 }, (_, i) => `Route No ${i + 1}`);
-
 let selectedRoute = localStorage.getItem("defaultBusRoute") || null;
 
+const busSelectSave = document.getElementById("busSelectSave");
+const saveClosePopup = document.getElementById("saveClosePopup");
+const ackSaveok = document.getElementById("ackSaveok");
+
+const busSelectCancel = document.getElementById("busSelectCancel");
+const cancelClosePopup = document.getElementById("cancelClosePopup");
+const ackCancelok = document.getElementById("ackCancelok");
+
+const busRoutes = Array.from({ length: 24 }, (_, i) => `Route No ${i + 1}`);
+
 function renderRoutes(filter = "") {
-  busList.innerHTML = "";
-  busRoutes
-    .filter(route => route.toLowerCase().includes(filter.toLowerCase()))
-    .forEach(route => {
-      const item = document.createElement("div");
-      item.className = "bus-item";
-      if (route === selectedRoute) item.classList.add("selected"); // preselect if already chosen
-      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg.setAttribute("class", "bus-icon");
-      svg.setAttribute("viewBox", "0 0 42 24");
-      svg.setAttribute("width", "42.42");
-      svg.setAttribute("height", "24");
-      svg.innerHTML = `<svg width="43" height="25" viewBox="0 0 43 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    busList.innerHTML = "";
+    busRoutes
+        .filter(route => route.toLowerCase().includes(filter.toLowerCase())) 
+        .forEach(route => {
+            const item = document.createElement("div");
+            item.className = "bus-item";
+            if (route === selectedRoute) {
+                item.classList.add("selected");
+            }
+
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("class", "bus-icon");
+            svg.setAttribute("viewBox", "0 0 42 24");
+            svg.setAttribute("width", "42.42");
+            svg.setAttribute("height", "24");
+            svg.innerHTML = `<svg width="43" height="25" viewBox="0 0 43 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M42.3726 23.0457H0V24.5002H42.3726V23.0457Z" fill="#333333"/>
 <path d="M38.8414 20.1359H40.2539C40.6285 20.1359 40.9877 19.9826 41.2526 19.7099C41.5175 19.4371 41.6663 19.0671 41.6663 18.6814V12.136L38.5589 4.1361L37.7821 2.14122C37.6774 1.87168 37.4967 1.64058 37.2634 1.47767C37.0301 1.31475 36.7547 1.22747 36.4728 1.22705H2.11848C1.74388 1.22705 1.38462 1.3803 1.11974 1.65307C0.854863 1.92585 0.706055 2.29581 0.706055 2.68158V18.6814C0.706055 19.0671 0.854863 19.4371 1.11974 19.7099C1.38462 19.9826 1.74388 20.1359 2.11848 20.1359H38.8414Z" fill="#F7E646"/>
 <path d="M38.5589 4.1361H0.706055V2.68158C0.706055 2.29581 0.854863 1.92585 1.11974 1.65307C1.38462 1.3803 1.74388 1.22705 2.11848 1.22705H36.4728C36.7547 1.22747 37.0301 1.31475 37.2634 1.47767C37.4967 1.64058 37.6774 1.87168 37.7821 2.14122L38.5589 4.1361Z" fill="#F7931E"/>
@@ -48,43 +59,59 @@ function renderRoutes(filter = "") {
 <path d="M7.06184 18.6816C6.78249 18.6816 6.50941 18.7669 6.27714 18.9268C6.04487 19.0866 5.86383 19.3138 5.75693 19.5795C5.65003 19.8453 5.62206 20.1378 5.67655 20.4199C5.73105 20.7021 5.86557 20.9613 6.0631 21.1647C6.26063 21.3681 6.5123 21.5066 6.78629 21.5627C7.06027 21.6189 7.34426 21.5901 7.60235 21.48C7.86043 21.3699 8.08102 21.1835 8.23622 20.9443C8.39142 20.7051 8.47426 20.4238 8.47426 20.1362C8.47426 19.7504 8.32545 19.3804 8.06057 19.1077C7.79569 18.8349 7.43643 18.6816 7.06184 18.6816ZM35.3103 18.6816C35.0309 18.6816 34.7578 18.7669 34.5256 18.9268C34.2933 19.0866 34.1123 19.3138 34.0054 19.5795C33.8985 19.8453 33.8705 20.1378 33.925 20.4199C33.9795 20.7021 34.114 20.9613 34.3115 21.1647C34.5091 21.3681 34.7607 21.5066 35.0347 21.5627C35.3087 21.6189 35.5927 21.5901 35.8508 21.48C36.1089 21.3699 36.3295 21.1835 36.4847 20.9443C36.6399 20.7051 36.7227 20.4238 36.7227 20.1362C36.7227 19.7504 36.5739 19.3804 36.309 19.1077C36.0441 18.8349 35.6849 18.6816 35.3103 18.6816Z" fill="black"/>
 <path d="M19.7739 12.863H17.6553V14.3176H19.7739V12.863Z" fill="black"/>
 </svg>`;
-      const span = document.createElement("span");
-      span.className = "bus-text";
-      span.textContent = route;
-      item.appendChild(svg);
-      item.appendChild(span);
-      item.addEventListener("click", () => {
-        document.querySelectorAll(".bus-item").forEach(el => el.classList.remove("selected"));
-        item.classList.add("selected");
-        selectedRoute = route;
-      });
+            const span = document.createElement("span");
+            span.className = "bus-text";
+            span.textContent = route;
+            item.appendChild(svg);
+            item.appendChild(span);
 
-      busList.appendChild(item);
-      
-    });
+            item.addEventListener("click", () => {
+                document.querySelectorAll(".bus-item").forEach(el => el.classList.remove("selected"));
+                item.classList.add("selected"); 
+                selectedRoute = route; 
+            });
+
+            busList.appendChild(item);
+        });
 }
 
-renderRoutes();
+renderRoutes(); 
 
 searchInput.addEventListener("input", () => {
-  renderRoutes(searchInput.value);
+    renderRoutes(searchInput.value); 
 });
 
 clearSearch.addEventListener("click", () => {
-  searchInput.value = "";
-  renderRoutes();
+    searchInput.value = ""; 
+    renderRoutes();
 });
 
 saveBtn.addEventListener("click", () => {
-  if (selectedRoute) {
-    localStorage.setItem("defaultBusRoute", selectedRoute);
-    window.location.href = "../pages/busstop.html"; 
-  } else {
-    alert("Please select a bus route.");
-  }
+    if (selectedRoute) {
+        localStorage.setItem("defaultBusRoute", selectedRoute);
+        busSelectSave.classList.remove("hidden");
+
+    } else {
+        busSelectCancel.classList.remove("hidden");
+    }
 });
 
 cancelBtn.addEventListener("click", () => {
-  selectedRoute = null;
-  document.querySelectorAll(".bus-item").forEach(el => el.classList.remove("selected"));
+    selectedRoute = null; 
+    document.querySelectorAll(".bus-item").forEach(el => el.classList.remove("selected"));
+});
+
+saveClosePopup.addEventListener("click", () => {
+  busSelectSave.classList.add("hidden");
+});
+ackSaveok.addEventListener("click", () => {
+  busSelectSave.classList.add("hidden");
+  window.location.href = "../index.html";
+});
+
+cancelClosePopup.addEventListener("click", () => {
+  busSelectCancel.classList.add("hidden");
+});
+ackCancelok.addEventListener("click", () => {
+  busSelectCancel.classList.add("hidden");
 });
