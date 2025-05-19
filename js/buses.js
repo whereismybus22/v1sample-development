@@ -97,7 +97,12 @@ saveBtn.addEventListener("click", () => {
 });
 
 cancelBtn.addEventListener("click", () => {
-    selectedRoute = null; 
+    if (!localStorage.getItem('defaultBusRoute')) {
+        busSelectCancel.classList.remove("hidden");
+    } else {
+        window.location.href = "../index.html";
+    }
+    selectedRoute = null;
     document.querySelectorAll(".bus-item").forEach(el => el.classList.remove("selected"));
 });
 
