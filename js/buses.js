@@ -4,7 +4,7 @@ const clearSearch = document.getElementById("clearSearch");
 const saveBtn = document.getElementById("saveBtn");
 const cancelBtn = document.getElementById("cancelBtn");
 
-const busRoutes = Array.from({ length: 24 }, (_, i) => `Route No ${i + 1}`);
+const busRoutes = Array.from({ length: 30 }, (_, i) => `Route No ${i + 1}`);
 
 let selectedRoute = localStorage.getItem("defaultBusRoute") || null;
 

@@ -27,7 +27,8 @@ body, html {
 .scroll-area {
   flex: 1;
   overflow-y: auto;
-  margin-bottom: 8px;
+  padding-bottom: 45px;
+  max-height: calc(100vh - 210px)
 }
 
 .bus-list {
