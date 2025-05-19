@@ -156,3 +156,107 @@ body {
   cursor: pointer;
 }
 
+.info-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  position: relative;
+  overflow: visible; 
+  transition: width 0.3s ease, border-radius 0.3s ease;
+}
+
+.info-toggle-btn.expanded {
+  width: auto;
+  border-radius: 20px;
+  padding: 0 12px;
+}
+
+.info-toggle-btn .info-text {
+  white-space: nowrap;
+  opacity: 0;
+  margin-right: 8px;
+  font-size: 14px;
+  color: #333;
+  font-family: "Manrope", sans-serif;
+}
+
+.info-toggle-btn.expanded .info-text {
+  opacity: 1;
+}
+
+.info-icon {
+  font-size: 20px;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.map-controls {
+  position: absolute;
+  top: 80px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+  align-items: flex-end; 
+}
+
+.control-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.info-toggle-btn img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  z-index: 2;
+}
+.info-toggle-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 0 10px;
+  overflow: hidden;
+  transition: width 0.3s ease, border-radius 0.3s ease;
+  cursor: pointer;
+}
+
+.info-toggle-btn.expanded {
+  width: auto;
+  border-radius: 20px;
+}
+
+.info-toggle-btn .info-text {
+  opacity: 0;
+  white-space: nowrap;
+  margin-left: 28px;
+}
+
+
+.icon-wrapper {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}

@@ -33,20 +33,34 @@
     <img id="bus-stop-marker" src="../assets/images/AppLogo.png" alt="Bus Stop Marker">
     
     <!-- Map Controls -->
-    <div class="map-controls">
-        <button id="map-toggle" class="control-btn" title="Toggle Map View">
-            <img src="../assets/images/satellite_layer_icon.png" height="24px" width="24px" class="fas" alt="">
-        </button>
-        <button id="current-location" class="control-btn" title="Current Location">
-            <img src="../assets/images/map_set_to_user_location.png" height="24px" width="24px" class="fas" alt="">
-        </button>
-        <button id="refresh" class="control-btn" title="Refresh">
-            <img src="../assets/images/refresh_page_icon.png" height="24px" width="24px" class="fas" alt="">
-        </button>
-        <button id="info-btn" class="control-btn" title="Info">
-            <img src="../assets/images/left_expansion_icon.svg" height="24px" width="24px" class="fas" alt="">
-        </button>
-    </div>
+<div class="map-controls">
+  <div class="control-wrapper">
+    <button id="map-toggle" class="control-btn" title="Toggle Map View">
+      <img src="../assets/images/satellite_layer_icon.png" height="24" width="24" alt="">
+    </button>
+  </div>
+
+  <div class="control-wrapper">
+    <button id="current-location" class="control-btn" title="Current Location">
+      <img src="../assets/images/map_set_to_user_location.png" height="24" width="24" alt="">
+    </button>
+  </div>
+
+  <div class="control-wrapper">
+    <button id="refresh" class="control-btn" title="Refresh">
+      <img src="../assets/images/refresh_page_icon.png" height="24" width="24" alt="">
+    </button>
+  </div>
+
+  <div class="control-wrapper">
+    <button id="info-btn" class="info-toggle-btn">
+  <span class="info-text">Click <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Here</a> to Know How to SetUp Your BusStop!</span>
+  <span class="icon-wrapper">
+    <img src="../assets/images/left_expansion_icon.svg" height="24" width="24" alt="">
+  </span>
+</button>
+  </div>
+  </div>
 
     <!-- Location Info Box -->
     <div id="location-info">
@@ -62,13 +76,7 @@
 
 </div>
 
-<!-- Info Modal -->
-<div id="info-modal" class="modal">
-<div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <p>Click <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Here</a> to Know How to SetUp Your BusStop!</p>
-</div>
-</div>
+
 
 <div id="floatingMenu" class="floating-menu hidden">
   <div class="menu-header">

@@ -137,3 +137,9 @@ clearSearch.addEventListener("click", () => {
   clearSearch.style.display = "none";
   searchInput.focus();
 });
+const infoBtn = document.getElementById('info-btn');
+
+  infoBtn.addEventListener('click', () => {
+    infoBtn.classList.toggle('expanded');
+  });
+
