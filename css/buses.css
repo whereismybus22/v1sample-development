@@ -21,14 +21,15 @@ body, html {
   padding: 16px;
   padding-bottom: 30px;
   box-sizing: border-box;
-  padding-top: 110px; 
+    padding-top: 100px;
 }
 
 .scroll-area {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 45px;
-  max-height: calc(100vh - 210px)
+  padding-bottom: 30px;
+  max-height: calc(100vh - 210px);
+  padding-top: 5px;
 }
 
 .bus-list {
@@ -90,6 +91,7 @@ body, html {
   width: 92%;
   position: fixed;
   top: 70px; 
+   z-index: 1000;
 }
 
 .search-icon,
@@ -110,11 +112,16 @@ body, html {
 
 .title {
   font-weight: 700;
-  color: #463c9d;
   margin: 12px 0;
   font-size: 24px;
   font-family: 'Manrope',sans-serif;
-
+  position: sticky;      
+  background: white;    
+  padding: 8px 0;
+  color:#463c9d;
+  z-index: 10;
+  top: 100px;
+  padding-top: 10px;
 }
 
 .bus-item {
