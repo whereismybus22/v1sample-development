@@ -138,10 +138,17 @@ clearSearch.addEventListener("click", () => {
   searchInput.focus();
 });
 
-
   const infoBtn = document.getElementById("info-btn");
 
-  infoBtn.addEventListener("click", () => {
+  const isFirstVisit = localStorage.getItem("visitedBusStopPage") === null;
+  console.log("isFirstVisit:", isFirstVisit);
+
+
+  if (isFirstVisit) {
+    infoBtn.classList.add("expanded");
+    localStorage.setItem("visitedBusStopPage", "true");
+  }
+
+  infoBtn.addEventListener("click", function () {
     infoBtn.classList.toggle("expanded");
   });
-
