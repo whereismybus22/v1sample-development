@@ -86,15 +86,15 @@ clearSearch.addEventListener("click", () => {
     renderRoutes();
 });
 
-saveBtn.addEventListener("click", () => {
-    if (selectedRoute) {
-        localStorage.setItem("defaultBusRoute", selectedRoute);
-        busSelectSave.classList.remove("hidden");
 
-    } else {
-        busSelectCancel.classList.remove("hidden");
-    }
-});
+saveBtn.addEventListener("click", () => {
+       if (selectedRoute) {
+           localStorage.setItem("defaultBusRoute", selectedRoute);
+           busSelectSave.classList.remove("hidden");
+       } else {
+           busSelectCancel.classList.remove("hidden");
+       }
+   });
 
 cancelBtn.addEventListener("click", () => {
     if (!localStorage.getItem('defaultBusRoute')) {
@@ -111,7 +111,7 @@ saveClosePopup.addEventListener("click", () => {
 });
 ackSaveok.addEventListener("click", () => {
   busSelectSave.classList.add("hidden");
-  window.location.href = "../index.html";
+  window.location.href = "../pages/busstop.html";
 });
 
 cancelClosePopup.addEventListener("click", () => {
