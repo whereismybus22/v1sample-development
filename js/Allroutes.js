@@ -18,7 +18,7 @@ const busRoutes = Array.from({ length: 24 }, (_, i) => `Route No ${i + 1}`);
 
 function renderRoutes(filter = "") {
     busList.innerHTML = "";
-    if (selectedRoute) {
+   /* if (selectedRoute) {
         
         const routeNumber = selectedRoute.split(" ")[2]; 
         const highlightedItem = document.createElement("div");
@@ -62,10 +62,10 @@ function renderRoutes(filter = "") {
         highlightedItem.appendChild(svg);
         highlightedItem.appendChild(span);
         busList.appendChild(highlightedItem);
-    }
+    }*/
 
     busRoutes
-        .filter(route => route.toLowerCase().includes(filter.toLowerCase()) && route !== selectedRoute) // Exclude the default route
+        .filter(route => route.toLowerCase().includes(filter.toLowerCase()) /*&& route !== selectedRoute*/) // Exclude the default route
         .forEach(route => {
             const item = document.createElement("div");
             item.className = "bus-item";
