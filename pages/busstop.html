@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="../css/busstop.css">
   <link rel="stylesheet" href="../css/topbar.css" />
   <link rel="stylesheet" href="../css/menu.css" />
+  <link rel="stylesheet" href="../css/help.css" />
+  <link rel="stylesheet" href="../css/download.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdqHUsFj2c1O8txrE_iVKLfbIBEK2pkD4&libraries=places " defer></script>
@@ -82,7 +84,31 @@
 
 </div>
 
+<div id="busSelectSave" class="help-popup hidden">
+       <div class="popup-content">
+           <div class="popup-content-inner">
+               <button class="close-btn" id="saveClosePopup">×</button>
+               <h2 class="dheading2">Successful!</h2>
+               <p class="listitems1" id="saveSuccessMessage">Default Bus Stop saved successfully!</p>
+               <div class="okcontainer">
+                   <button id="ackSaveok">OK</button>
+               </div>
+           </div>
+       </div>
+   </div>
 
+   <div id="busSelectCancel" class="help-popup hidden">
+       <div class="popup-content">
+           <div class="popup-content-inner">
+               <button class="close-btn" id="cancelClosePopup">×</button>
+               <h2 class="dheading2">Alert!</h2>
+               <p class="listitems1">Default Bus Stop setup is mandatory!</p>
+               <div class="okcontainer">
+                   <button id="ackCancelok">OK</button>
+               </div>
+           </div>
+       </div>
+   </div>
 
 <div id="floatingMenu" class="floating-menu hidden">
   <div class="menu-header">

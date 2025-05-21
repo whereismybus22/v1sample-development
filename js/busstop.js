@@ -97,6 +97,43 @@ document.addEventListener("DOMContentLoaded", function () {
     location.reload();
   });
 
+
+    // Save and Cancel button
+    document.getElementById("save-btn").addEventListener("click", function () {
+        const pos = marker.getPosition();
+        const busStopData = { lat: pos.lat(), lng: pos.lng() };
+
+        localStorage.setItem("defaultBusStop", JSON.stringify(busStopData));
+
+        document.getElementById("busSelectSave").classList.remove("hidden");
+    });
+    document.getElementById("cancel-btn").addEventListener("click", function () {
+        const busStopData = localStorage.getItem("defaultBusStop");
+
+        if (busStopData) {
+            window.location.href = "/index.html"; 
+        } else {
+            document.getElementById("busSelectCancel").classList.remove("hidden");
+        }
+    });
+      document.getElementById("ackSaveok").addEventListener("click", function () {
+    document.getElementById("busSelectSave").classList.add("hidden");
+    window.location.href = "/index.html"; 
+});
+    document.getElementById("ackSaveok").addEventListener("click", function () {
+        document.getElementById("busSelectSave").classList.add("hidden");
+    });
+    document.getElementById("saveClosePopup").addEventListener("click", function () {
+        document.getElementById("busSelectSave").classList.add("hidden");
+    });
+    document.getElementById("ackCancelok").addEventListener("click", function () {
+        document.getElementById("busSelectCancel").classList.add("hidden");
+    });
+    document.getElementById("cancelClosePopup").addEventListener("click", function () {
+        document.getElementById("busSelectCancel").classList.add("hidden");
+    });
+ 
+
   // Modal
   const modal = document.getElementById("info-modal");
   const infoBtn = document.getElementById("info-btn");

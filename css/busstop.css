@@ -299,3 +299,30 @@ body {
   justify-content: center;
    margin-right: -20px;
 }
+.hidden{
+  display: none;
+}
+#ackSaveok{
+  background-color: #fcd34d; 
+  border: none;
+  border-radius: 9999px;
+  width: 100px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 10px;
+}
+#ackCancelok{
+  background-color: #fcd34d; 
+  border: none;
+  border-radius: 9999px;
+  width: 100px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 10px;
+}
