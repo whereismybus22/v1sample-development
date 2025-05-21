@@ -4,7 +4,10 @@ const clearSearch = document.getElementById("clearSearch");
 const saveBtn = document.getElementById("saveBtn");
 const cancelBtn = document.getElementById("cancelBtn");
 
-let selectedRoute = localStorage.getItem("defaultBusRoute") || null;
+let selectedRoute = localStorage.getItem("defaultBusRoute");
+if (selectedRoute) {
+    selectedRoute = `Route No ${selectedRoute.replace("route", "")}`; 
+}
 let currentSelection = null; 
 
 const busSelectSave = document.getElementById("busSelectSave");
@@ -142,8 +145,9 @@ clearSearch.addEventListener("click", () => {
 
 saveBtn.addEventListener("click", () => {
     if (currentSelection) {
-        const selectedRouteText = currentSelection.querySelector(".bus-text").textContent;
+        const selectedRouteText = `route${currentSelection.querySelector(".bus-text").textContent.split(" ")[2]}`;
         localStorage.setItem("defaultBusRoute", selectedRouteText); 
+        
         busSelectSave.classList.remove("hidden");
     } else {
         busSelectCancel.classList.remove("hidden");

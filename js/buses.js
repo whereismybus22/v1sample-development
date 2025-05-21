@@ -4,7 +4,11 @@ const clearSearch = document.getElementById("clearSearch");
 const saveBtn = document.getElementById("saveBtn");
 const cancelBtn = document.getElementById("cancelBtn");
 
-let selectedRoute = localStorage.getItem("defaultBusRoute") || null;
+let selectedRoute = localStorage.getItem("defaultBusRoute");
+if (selectedRoute) {
+    selectedRoute = `Route No ${selectedRoute.replace("route", "")}`; 
+}
+
 
 const busSelectSave = document.getElementById("busSelectSave");
 const saveClosePopup = document.getElementById("saveClosePopup");
@@ -89,7 +93,8 @@ clearSearch.addEventListener("click", () => {
 
 saveBtn.addEventListener("click", () => {
        if (selectedRoute) {
-           localStorage.setItem("defaultBusRoute", selectedRoute);
+           const routeNumber = selectedRoute.split(" ")[2];
+localStorage.setItem("defaultBusRoute", `route${routeNumber}`);
            busSelectSave.classList.remove("hidden");
        } else {
            busSelectCancel.classList.remove("hidden");
