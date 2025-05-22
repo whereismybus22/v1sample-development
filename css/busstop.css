@@ -12,14 +12,16 @@ body {
 
 #map-container {
   position: relative;
-  height: calc(100vh - 60px); /* Adjust for top bar and buttons */
+  height: calc(100vh - 50px); /* Adjust for top bar and buttons */
   width: 100%;
+  overflow: hidden;
 }
 
 
 #map {
   height: 100%;
   width: 100%;
+  backface-visibility: hidden;
 }
 
 .map-controls {
@@ -168,7 +170,6 @@ body {
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   padding: 0;
-  position: relative;
   overflow: visible; 
   transition: width 0.3s ease, border-radius 0.3s ease;
 }
@@ -177,6 +178,7 @@ body {
   width: auto;
   border-radius: 20px;
   padding: 0 12px;
+   transform: translateX(0);
 }
 
 .info-toggle-btn .info-text {
@@ -290,7 +292,6 @@ body {
   cursor: pointer;
   overflow: hidden;
   transition: width 0.3s ease, border-radius 0.3s ease;
-  position: relative;
   padding: 0;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -298,6 +299,7 @@ body {
   border-bottom-right-radius: 0;
   justify-content: center;
    margin-right: -20px;
+   z-index: 1000;
 }
 .hidden{
   display: none;

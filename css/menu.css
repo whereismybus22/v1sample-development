@@ -69,11 +69,12 @@
   color: #2b2e83;
   cursor: pointer;
 }
-.secondarymenu-items p{
-  font-family:"Kumbh Sans",sans-serif;;
+.secondarymenu-items p {
+  font-family:"Kumbh Sans",sans-serif;
   font-size: 17px;
   color:#252525;
   margin-left: 8px;
+  font-weight: 0px;
 }
 .socials {
   margin-top: 1.5rem;
