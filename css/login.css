@@ -74,13 +74,13 @@
       border: none;
       outline: none;
       background: transparent;
-      color: #6b7280; 
+      color:black; 
       font-size: 0.875rem;
       flex-grow: 1;
+      padding-left: 8px;
     }
     input::placeholder {
       color: #9ca3af;
-      padding-left: 8px;
     }
     .input-group button {
       background: transparent;
