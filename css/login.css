@@ -80,6 +80,7 @@
     }
     input::placeholder {
       color: #9ca3af;
+      padding-left: 8px;
     }
     .input-group button {
       background: transparent;
@@ -91,40 +92,6 @@
       font-size: 1rem;
       padding: 0;
     }
-    .options {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem; 
-      color: #4b5563; 
-    }
-    .options label {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      user-select: none;
-    }
-    .options input[type="checkbox"] {
-      width: 0.75rem;
-      height: 0.75rem;
-      border: 1px solid #9ca3af;
-      border-radius: 0.125rem;
-      cursor: pointer;
-    }
-    .options button {
-      background: none;
-      border: none;
-      color: #374151; 
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      padding: 0;
-    }
-    .options button:hover,
-    .options button:focus {
-      text-decoration: underline;
-      outline: none;
-    }
     button.login-btn {
       background-color: #fbbf24;
       color: black;
@@ -132,6 +99,7 @@
       border: none;
       border-radius: 0.75rem;
       padding: 0.75rem 0;
+      margin-top: 0.75rem;
       font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.2s ease;
