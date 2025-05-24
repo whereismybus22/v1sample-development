@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", () => {
         document.getElementById("splashScreen").style.display = "none";
         document.getElementById("trackerContent").style.display = "block";
         document.getElementById("mapContainer").style.display = "flex";
-      }, 5000);
+      }, 4000);
     });
  let timer = 0;
     let timerInterval;
