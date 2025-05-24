@@ -1,20 +1,52 @@
 {
   "rewrites": [
-    {
-      "source": "/route21",
-      "destination": "/track/index.html"
-    },
-    {
-      "source": "/route21/",
-      "destination": "/track/index.html"
-    },
-    {
-      "source": "/route22",
-      "destination": "/track/index.html"
-    },
-    {
-      "source": "/route22/",
-      "destination": "/track/index.html"
-    }
+    { "source": "/route1",  "destination": "/track/index.html" },
+    { "source": "/route1/", "destination": "/track/index.html" },
+    { "source": "/route2",  "destination": "/track/index.html" },
+    { "source": "/route2/", "destination": "/track/index.html" },
+    { "source": "/route3",  "destination": "/track/index.html" },
+    { "source": "/route3/", "destination": "/track/index.html" },
+    { "source": "/route4",  "destination": "/track/index.html" },
+    { "source": "/route4/", "destination": "/track/index.html" },
+    { "source": "/route5",  "destination": "/track/index.html" },
+    { "source": "/route5/", "destination": "/track/index.html" },
+    { "source": "/route6",  "destination": "/track/index.html" },
+    { "source": "/route6/", "destination": "/track/index.html" },
+    { "source": "/route7",  "destination": "/track/index.html" },
+    { "source": "/route7/", "destination": "/track/index.html" },
+    { "source": "/route8",  "destination": "/track/index.html" },
+    { "source": "/route8/", "destination": "/track/index.html" },
+    { "source": "/route9",  "destination": "/track/index.html" },
+    { "source": "/route9/", "destination": "/track/index.html" },
+    { "source": "/route10",  "destination": "/track/index.html" },
+    { "source": "/route10/", "destination": "/track/index.html" },
+    { "source": "/route11",  "destination": "/track/index.html" },
+    { "source": "/route11/", "destination": "/track/index.html" },
+    { "source": "/route12",  "destination": "/track/index.html" },
+    { "source": "/route12/", "destination": "/track/index.html" },
+    { "source": "/route13",  "destination": "/track/index.html" },
+    { "source": "/route13/", "destination": "/track/index.html" },
+    { "source": "/route14",  "destination": "/track/index.html" },
+    { "source": "/route14/", "destination": "/track/index.html" },
+    { "source": "/route15",  "destination": "/track/index.html" },
+    { "source": "/route15/", "destination": "/track/index.html" },
+    { "source": "/route16",  "destination": "/track/index.html" },
+    { "source": "/route16/", "destination": "/track/index.html" },
+    { "source": "/route17",  "destination": "/track/index.html" },
+    { "source": "/route17/", "destination": "/track/index.html" },
+    { "source": "/route18",  "destination": "/track/index.html" },
+    { "source": "/route18/", "destination": "/track/index.html" },
+    { "source": "/route19",  "destination": "/track/index.html" },
+    { "source": "/route19/", "destination": "/track/index.html" },
+    { "source": "/route20",  "destination": "/track/index.html" },
+    { "source": "/route20/", "destination": "/track/index.html" },
+    { "source": "/route21",  "destination": "/track/index.html" },
+    { "source": "/route21/", "destination": "/track/index.html" },
+    { "source": "/route22",  "destination": "/track/index.html" },
+    { "source": "/route22/", "destination": "/track/index.html" },
+    { "source": "/route23",  "destination": "/track/index.html" },
+    { "source": "/route23/", "destination": "/track/index.html" },
+    { "source": "/route24",  "destination": "/track/index.html" },
+    { "source": "/route24/", "destination": "/track/index.html" }
   ]
 }
