@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Track Route Extractor</title>
+</head>
+<body>
+    <h1>Route Extractor</h1>
+    <p id="output">Loading...</p>
+
+    <script>
+        // Get the current path from the URL
+        const path = window.location.pathname;
+
+        // Use regex to extract the part after /track/
+        const match = path.match(/\/track\/([^\/]+)/);
+
+        // Get the output element
+        const output = document.getElementById("output");
+
+        if (match && match[1]) {
+            output.textContent = `Extracted route: ${match[1]}`;
+        } else {
+            output.textContent = "No route found after /track/";
+        }
+    </script>
+</body>
+</html>
