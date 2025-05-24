@@ -1,7 +1,19 @@
 {
   "rewrites": [
     {
-      "source": "/track/:any*",
+      "source": "/route21",
+      "destination": "/track/index.html"
+    },
+    {
+      "source": "/route21/",
+      "destination": "/track/index.html"
+    },
+    {
+      "source": "/route22",
+      "destination": "/track/index.html"
+    },
+    {
+      "source": "/route22/",
       "destination": "/track/index.html"
     }
   ]
