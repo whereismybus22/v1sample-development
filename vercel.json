@@ -2,8 +2,8 @@
   "rewrites": [
     { "source": "/route1", "destination": "/track/index.html" },
     { "source": "/route1/", "destination": "/track/index.html" },
-    { "source": "/route2", "destination": "/pages/map.html" },
-    { "source": "/route2/", "destination": "/pages/map.html" },
+    { "source": "/route2", "destination": "/mainMap/index.html" },
+    { "source": "/route2/", "destination": "/mainMap/index.html" },
     { "source": "/route3", "destination": "/pages/map.html" },
     { "source": "/route3/", "destination": "/pages/map.html" },
     { "source": "/route4", "destination": "/pages/map.html" },
