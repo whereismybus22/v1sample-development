@@ -1,49 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
   <title>Route Display</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      text-align: center;
-    }
-    .route {
-      font-size: 2rem;
-      color: #007acc;
-      margin-top: 1rem;
-    }
-  </style>
 </head>
 <body>
-  <h1>Current Route</h1>
-  <div class="route" id="routeDisplay">Loading...</div>
+  <h1 id="route-display"></h1>
 
   <script>
-    // Function to extract route from URL path
-    function getRouteFromPath() {
-      // Example URL paths:
-      // /route1 or /route1/
-      // /route21 or /route21/
-      // Actual URL will be something like: https://yourdomain.com/route21
-
-      // Get the full pathname, e.g. "/route21" or "/route21/"
+    function displayRoute() {
+      // Get the pathname from the URL, e.g., "/route1/" or "/route1"
       const path = window.location.pathname;
 
-      // Use regex to match "/route<number>" at the start of the path
-      const match = path.match(/^\/(route\d+)(\/)?$/i);
+      // Remove leading/trailing slashes and extract the route part
+      const route = path.replace(/^\/|\/$/g, ''); // removes both starting and ending slash
 
-      if (match) {
-        return match[1]; // e.g. "route21"
-      } else {
-        return "Unknown route";
-      }
+      // Display the route
+      document.getElementById('route-display').textContent = route;
     }
 
-    // Display the route on the page
-    document.getElementById("routeDisplay").textContent = getRouteFromPath();
+    // Call the function when the page loads
+    displayRoute();
   </script>
 </body>
 </html>
