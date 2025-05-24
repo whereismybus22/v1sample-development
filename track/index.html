@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Track Route Extractor</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Track a Route</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f0f2f5;
+      color: #333;
+    }
+    .container {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-top: 0;
+    }
+  </style>
 </head>
 <body>
-    <h1>Route Extractor</h1>
-    <p id="output">Loading...</p>
+  <div class="container">
+    <h1>Tracking Route</h1>
+    <p id="route-info">Loading route information...</p>
+  </div>
 
-    <script>
-        // Get the current path from the URL
-        const path = window.location.pathname;
+  <script>
+    // Extract route from URL: e.g., /track/route21 -> "route21"
+    const pathParts = window.location.pathname.split('/').slice(2); // removes "", "track"
+    const routeName = pathParts.join('/'); // supports nested paths like /track/route/blue
 
-        // Use regex to extract the part after /track/
-        const match = path.match(/\/track\/([^\/]+)/);
-
-        // Get the output element
-        const output = document.getElementById("output");
-
-        if (match && match[1]) {
-            output.textContent = `Extracted route: ${match[1]}`;
-        } else {
-            output.textContent = "No route found after /track/";
-        }
-    </script>
+    // Display it
+    const routeInfoEl = document.getElementById('route-info');
+    if (routeName) {
+      routeInfoEl.textContent = `You are tracking: ${routeName}`;
+    } else {
+      routeInfoEl.textContent = 'No route specified.';
+    }
+  </script>
 </body>
 </html>
