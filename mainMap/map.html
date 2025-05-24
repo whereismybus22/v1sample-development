@@ -324,6 +324,7 @@
         function findRoute() {
             const path = window.location.pathname;
             const route = path.replace(/^\/|\/$/g, '');
+            console.log(route);
             return route;
         }
 
@@ -332,7 +333,9 @@
         const matchedRoute = allRoutes.find(routeArr => routeArr[0] === thisRoute);
 
         const thisRouteDisplayRoute = matchedRoute ? matchedRoute[1] : null;
+        console.log(thisRouteDisplayRoute);
         const thisRouteID = matchedRoute ? matchedRoute[2] : null;
+        console.log(thisRouteID);
 
 
         let isUserBusSet = false;  // Variable to keep track of toggle state
