@@ -61,7 +61,16 @@
         }
     </script>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-    <script>
+    <script>  
+        const allRoutes = [
+            ["route1", "Route 1", 446],
+            ["route2", "Route 2", 447],
+            ["route3", "Route 3", 448],
+            ["route4", "Route 4", 447],
+            ["route5", "Route 5", 446],
+            ["route21", "Route 21", 477]
+        ];
+
         function findRoute() {
             const path = window.location.pathname;
             const route = path.replace(/^\/|\/$/g, '');
