@@ -125,33 +125,30 @@
             position: fixed;
             right: 6px;
             z-index: 1000;
-            margin-top: 40px;
+            margin-top: 80px;
         }
 
         .set-user-bus-button img {
             width: 35px;
             height: 35px;
         }
-
-        .location-address-button {
+        .refresh-button{
             position: fixed;
             right: 6px;
             z-index: 1000;
-            margin-top: 80px;
-            /* Adjusted to place below the set-user-bus-button */
+            margin-top: 40px;
         }
+       .refresh-button img{
+        height: 38px;
+        width:38px;
+       }
 
-        .location-address-button img {
-            width: 35px;
-            height: 35px;
-        }
-
+    
         .directions-toGoogleMap {
             position: fixed;
             right: 6px;
             z-index: 1000;
             margin-top: 120px;
-            /* Adjusted to place below the set-user-bus-button */
         }
 
         .directions-toGoogleMap img {
@@ -164,7 +161,6 @@
             right: 6px;
             z-index: 1000;
             margin-top: 160px;
-            /* Adjusted to place below the set-user-bus-button */
         }
 
         .bus-miss img {
@@ -278,28 +274,27 @@
 
 .tracker-title {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    text-align: center; /* Center text */
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
 }
 
 .tracker-subtitle {
-    font-size: 13px; /* Small font size for "Tracking" */
+    font-size: 13px; 
     color: #3D408A;
     font-weight: 800;
     font-family: "Manrope", sans-serif;
 }
 
 .tracker-route {
-    font-size: 20px; /* Larger font size for the route number */
+    font-size: 20px; 
     color: #000000;
-    margin-top: 0; /* No space between "Tracking" and the route number */
-    /* Adjust this value to offset the route number */
+    margin-top: 0; 
 }
 
 #menuBtn svg {
-    width: 25px; /* Set a width */
-    height: 25px; /* Set a height */
+    width: 25px; 
+    height: 25px; 
     margin-right: 3px;
 }
 
@@ -341,6 +336,9 @@
         <div id="map">
             <div id="layerButton" onclick="toggleMapLayer()">
                 <img id="layerButtonImg" src="../img/toSatellite.svg" alt="Layers">
+            </div>
+            <div class="refresh-button" onclick="refreshbtn()">
+                <img src="../assets/images/refresh_page_icon.png" alt="Set User Bus">
             </div>
             <div class="set-user-bus-button" onclick="setUserBus()">
                 <img src="../img/follow_user.png" alt="Set User Bus">
