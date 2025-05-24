@@ -67,9 +67,25 @@
   justify-content: center;
   height: 100vh;
 }
-#loadingTime {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 18px;
-      color: #333;
+.map-container {
+  position: absolute;
+  top: 60px; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1); 
+  z-index: 1;
+  display: none; 
+  flex-direction: column; 
+  align-items: flex-start; 
+  justify-content: center; 
+}
+.timer {
+  position: absolute; 
+  top: 10px; 
+  right: 10px;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  color: #000;
+  z-index: 2; 
 }
