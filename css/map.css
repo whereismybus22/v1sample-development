@@ -1,0 +1,65 @@
+.tracker-top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+}
+
+.tracker-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.tracker-logo {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.tracker-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: "Manrope",sans-serif;
+}
+
+.tracker-subtitle {
+  font-size: 16px;
+  color: #3D408A;
+  font-weight: 800;
+  font-family: "Manrope",sans-serif;
+}
+
+.tracker-route {
+  font-size: 20px;
+  color:#000000;
+}
+
+.tracker-filter-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tracker-filter-icon svg {
+  cursor: pointer;
+  transition: transform 0.2s ease, fill 0.2s ease;
+  width: 28px;
+  height: 24px;
+  fill: #2b2e83;
+}
+
+
+
