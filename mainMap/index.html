@@ -62,6 +62,23 @@
     </script>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script>
+        function findRoute() {
+            const path = window.location.pathname;
+            const route = path.replace(/^\/|\/$/g, '');
+            console.log(route);
+            return route;
+        }
+
+        const thisRoute = findRoute();
+
+        const matchedRoute = allRoutes.find(routeArr => routeArr[0] === thisRoute);
+
+        const thisRouteDisplayRoute = matchedRoute ? matchedRoute[1] : null;
+        console.log(thisRouteDisplayRoute);
+        const thisRouteID = matchedRoute ? matchedRoute[2] : null;
+        console.log(thisRouteID);
+    </script>
+    <script>
         const lottiePlayer = document.getElementById('lottie-player');
 
         lottiePlayer.addEventListener('complete', function() {
