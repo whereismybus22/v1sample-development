@@ -61,5 +61,15 @@
   fill: #2b2e83;
 }
 
-
-
+.splash-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+#loadingTime {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+      color: #333;
+}

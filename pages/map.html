@@ -9,7 +9,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="tracker-container">
+
+  <div class="splash-screen" id="splashScreen">
+    <div id="loadingTime">0 seconds</div>
+    <dotlottie-player
+      src="https://lottie.host/387b694f-bffe-4dee-baf3-b640f81a7eea/R05YTYmVBN.lottie"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px; margin: auto;"
+      loop
+      autoplay>
+    </dotlottie-player>
+  </div>
+
+  
+  <div class="tracker-container" id="trackerContent" style="display: none;">
     <div class="tracker-top-bar">
       <img class="tracker-logo" id="indexBtn" src="../assets/images/AppLogo.png" alt="Bus Icon" />
 
@@ -17,7 +31,6 @@
         <span class="tracker-subtitle">Tracking</span><br />
         <strong class="tracker-route" id="routeNumber">Route -</strong>
       </div>
-
       <div id="menuBtn" class="tracker-filter-icon">
         <svg xmlns="http://www.w3.org/2000/svg" fill="#2b2e83" viewBox="0 0 16 16">
           <path stroke="black" stroke-width="0.5" fill-rule="evenodd"
@@ -27,6 +40,7 @@
     </div>
   </div>
 
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
   <script src="../js/map.js"></script>
 </body>
 </html>
