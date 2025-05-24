@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
     <link rel="shortcut icon" href="favicon.ico">
     <style id="dynamic-styles">
         /* Default styles (non-standalone) */
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -17,18 +19,19 @@
         }
     </style>
     <style>
-
         #animation-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: white; /* Change background to white */
+            background-color: white;
+            /* Change background to white */
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000; /* Make sure it's on top */
+            z-index: 1000;
+            /* Make sure it's on top */
         }
 
         #map-container {
@@ -37,9 +40,12 @@
         }
     </style>
 </head>
+
 <body>
     <div id="animation-overlay">
-        <dotlottie-player id="lottie-player" src="https://lottie.host/387b694f-bffe-4dee-baf3-b640f81a7eea/R05YTYmVBN.lottie" background="transparent" speed="1.3" style="width: 300px; height: 300px" direction="1" playMode="normal" autoplay></dotlottie-player>
+        <dotlottie-player id="lottie-player"
+            src="https://lottie.host/387b694f-bffe-4dee-baf3-b640f81a7eea/R05YTYmVBN.lottie" background="transparent"
+            speed="1.3" style="width: 300px; height: 300px" direction="1" playMode="normal" autoplay></dotlottie-player>
     </div>
     <div id="map-container">
         <iframe src="/mainMap/map.html" style="width: 100%; height: 100%; border: none;"></iframe>
@@ -61,15 +67,7 @@
         }
     </script>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-    <script>  
-        const allRoutes = [
-            ["route1", "Route 1", 446],
-            ["route2", "Route 2", 447],
-            ["route3", "Route 3", 448],
-            ["route4", "Route 4", 447],
-            ["route5", "Route 5", 446],
-            ["route21", "Route 21", 477]
-        ];
+    <script>
 
         function findRoute() {
             const path = window.location.pathname;
@@ -80,17 +78,13 @@
 
         const thisRoute = findRoute();
 
-        const matchedRoute = allRoutes.find(routeArr => routeArr[0] === thisRoute);
+        localStorage.setItem('thisRoute', thisRoute);
 
-        const thisRouteDisplayRoute = matchedRoute ? matchedRoute[1] : null;
-        console.log(thisRouteDisplayRoute);
-        const thisRouteID = matchedRoute ? matchedRoute[2] : null;
-        console.log(thisRouteID);
     </script>
     <script>
         const lottiePlayer = document.getElementById('lottie-player');
 
-        lottiePlayer.addEventListener('complete', function() {
+        lottiePlayer.addEventListener('complete', function () {
             document.getElementById('animation-overlay').style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scroll if necessary
         });
@@ -101,4 +95,5 @@
         }
     </script>
 </body>
+
 </html>
