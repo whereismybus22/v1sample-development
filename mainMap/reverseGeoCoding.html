@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Single Function Reverse Geocoding</title>
+</head>
+<body>
+
+  <h1>Reverse Geocoding Result</h1>
+  <div id="result">Fetching address...</div>
+
+  <script>
+    async function getAddressFromCoords({ lat, lon }) {
+      const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+        const data = await response.json();
+        return data.display_name || 'Address not found';
+      } catch (error) {
+        console.error('Error fetching address:', error);
+        return 'Error fetching address';
+      }
+    }
+
+    // Example usage:
+    (async () => {
+      const coords = {lat:17.23967833528285,lon:80.139403521954}; // Example: Empire State Building
+       
+       
+      const address = await getAddressFromCoords(coords);
+      document.getElementById('result').textContent = `Address: ${address}`;
+    })();
+  </script>
+
+</body>
+</html>
