@@ -762,9 +762,8 @@
     const matchedRoute = allRoutes.find(routeArr => routeArr[0] === thisRoute);
 
     const thisRouteDisplayName = matchedRoute ? matchedRoute[1] : null;
-    console.log(thisRouteDisplayName);
     const thisRouteID = matchedRoute ? matchedRoute[2] : null;
-    console.log(thisRouteID);
+    
     if (thisRouteDisplayName) {
         document.getElementById('routeNumber').textContent = thisRouteDisplayName;
     } else {

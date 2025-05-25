@@ -4,9 +4,9 @@ var istTime = new Date().getHours();
 let previousBusLocation = [0, 0];
 let presentBusLocation = [0, 0];
 
+
 if(localStorage.getItem('defaultBusStop')){
-  var studentStopLocation = localStorage.getItem('defaultBusStop');
-  studentStopLocation = [studentStopLocation["lat"], studentStopLocation["lng"]] ;
+  var studentStopLocation = [JSON.parse(localStorage.getItem('defaultBusStop')).lat , JSON.parse(localStorage.getItem('defaultBusStop')).lng ] ;
 }
 
 function getCookie(name) {
