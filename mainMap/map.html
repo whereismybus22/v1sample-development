@@ -758,7 +758,8 @@
         ["route23", "Route 23", 447],
         ["route24", "Route 24", 447]
     ];
-    const matchedRoute = allRoutes.find(routeArr => routeArr[0] === localStorage.getItem('thisRoute'));
+    const thisRoute = localStorage.getItem('thisRoute') ;
+    const matchedRoute = allRoutes.find(routeArr => routeArr[0] === thisRoute);
 
     const thisRouteDisplayName = matchedRoute ? matchedRoute[1] : null;
     console.log(thisRouteDisplayName);
