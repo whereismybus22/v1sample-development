@@ -6,9 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script>
 		// Immediate redirection logic
-		if (
-			!window.matchMedia('(display-mode: standalone)').matches &&
-			window.navigator.standalone === false &&
+		const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+		if ( isStandalone === false &&
 			!sessionStorage.getItem('pwaPageSkip')
 		) {
 			window.location = '/pages/index.html';
