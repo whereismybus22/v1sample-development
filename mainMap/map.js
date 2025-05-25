@@ -3,11 +3,15 @@ var istTime = new Date().getHours();
 
 let previousBusLocation = [0, 0];
 let presentBusLocation = [0, 0];
+let toLocation ;
 
 
-if(localStorage.getItem('defaultBusStop')){
-  var studentStopLocation = [JSON.parse(localStorage.getItem('defaultBusStop')).lat , JSON.parse(localStorage.getItem('defaultBusStop')).lng ] ;
+if (localStorage.getItem('defaultBusStop')) {
+  var studentStopLocation = [JSON.parse(localStorage.getItem('defaultBusStop')).lat, JSON.parse(localStorage.getItem('defaultBusStop')).lng];
+  toLocation = studentStopLocation;
 }
+
+// var studentStopLocation = [17.595580940309862, 78.44159359579915];
 
 function getCookie(name) {
   const nameEQ = name + "=";
@@ -28,7 +32,6 @@ function parseCoordinates(coordinates) {
     .map((coord) => parseFloat(coord.trim()));
 }
 
-let toLocation = studentStopLocation;
 let busMarker;
 let shouldFollowMarker = false;
 let shouldCalculateRoute = false;
@@ -352,7 +355,7 @@ var path = "";
 if (istTime >= 2 && istTime <= 13) {
   path = `/vehicleRoutes/morning/${thisRoute}.json`;
 } else {
-  path = `/vehicleRoutes/morning/${thisRoute}.json`;
+  path = `/vehicleRoutes/evening/${thisRoute}.json`;
 }
 
 fetch(path)
@@ -428,26 +431,28 @@ function toggleMapLayer() {
   isStreetView = !isStreetView;
 }
 
-var studentStopMarker = L.marker(studentStopLocation, {
-  icon: L.icon({
-    iconUrl: "../img/studentStop.svg",
-    iconSize: [35, 35],
-    iconAnchor: [16, 32],
-  }),
-}).addTo(map);
+if (studentStopLocation) {
+  var studentStopMarker = L.marker(studentStopLocation, {
+    icon: L.icon({
+      iconUrl: "../img/studentStop.svg",
+      iconSize: [35, 35],
+      iconAnchor: [16, 32],
+    }),
+  }).addTo(map);
 
-studentStopMarker.on("click", function () {
-  polyline.setStyle({ weight: 0 });
-  map.flyTo(studentStopLocation, 19, {
-    animate: true,
-  });
-  map.once("zoomend", function () {
-    polyline.setStyle({ weight: 3 });
-  });
-  isUserBusSet = false;  // Variable to keep track of toggle state 
-  document.querySelector('.set-user-bus-button img').src = "../img/follow_user.png";
+  studentStopMarker.on("click", function () {
+    polyline.setStyle({ weight: 0 });
+    map.flyTo(studentStopLocation, 19, {
+      animate: true,
+    });
+    map.once("zoomend", function () {
+      polyline.setStyle({ weight: 3 });
+    });
+    isUserBusSet = false;  // Variable to keep track of toggle state 
+    document.querySelector('.set-user-bus-button img').src = "../img/follow_user.png";
 
-});
+  });
+}
 
 map.on("dragstart", function () {
   shouldFollowMarker = false;
@@ -462,44 +467,6 @@ map.on("dragstart", function () {
   }
 
 });
-
-if (document.getElementById("isInBus")) {
-  document.addEventListener("DOMContentLoaded", function () {
-    const isInBusButton = document.getElementById("isInBus");
-    const buttonText = document.getElementById("buttonText");
-    const toggleContent = document.getElementById("toggleContent");
-    const toggleSwitch = document.getElementById("toggleSwitch");
-    const routeText = document.getElementById("routeText"); // Add this line
-
-    isInBusButton.addEventListener("click", function () {
-      if (isInBusButton.classList.contains("expanded")) {
-        isInBusButton.classList.remove("expanded");
-        buttonText.innerHTML =
-          "<img src='../img/left.svg' alt='Left Arrow' width='15' height='15'>"; // Left arrow image
-        toggleContent.style.display = "none";
-      } else {
-        isInBusButton.classList.add("expanded");
-        buttonText.innerHTML =
-          "<img src='../img/right.svg' alt='Right Arrow' width='15' height='15'>"; // Right arrow image
-        toggleContent.style.display = "flex";
-      }
-    });
-
-    toggleSwitch.addEventListener("change", function () {
-      shouldCalculateRoute = true;
-      if (toggleSwitch.checked) {
-        toLocation = [...destinationLocation];
-        routeText.textContent = "To College"; // Update text
-        fetchBusLocation();
-      } else {
-        toLocation = [...studentStopLocation];
-        routeText.textContent = "To BusStop"; // Update text
-        fetchBusLocation();
-      }
-      // console.log(toLocation);
-    });
-  });
-}
 
 fetchBusLocation();
 setInterval(fetchBusLocation, 10000);
