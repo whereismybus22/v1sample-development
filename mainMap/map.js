@@ -345,9 +345,9 @@ var map = L.map("map", {
 
 var path = "";
 if (istTime >= 2 && istTime <= 13) {
-  path = "/vehicleRoutes/morning/route21.json";
+  path = `/vehicleRoutes/morning/${thisRoute}.json`;
 } else {
-  path = "/vehicleRoutes/evening/route21.json";
+  path = `/vehicleRoutes/morning/${thisRoute}.json`;
 }
 
 fetch(path)
