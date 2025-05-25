@@ -273,39 +273,40 @@
             width: 30px;
             height: 30px;
         }
-.speed-indicator {
-    position: fixed;
-    bottom: 18px;
-    left: 10px;
-    background: white;
-    border-radius: 50%;
-    padding: 10px;
-    z-index: 1000;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid;
-    border-color: #252525;
-}
 
-.speed-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    line-height: 1;
-    text-align: center;
-    font-weight: bold;
-}
+        .speed-indicator {
+            position: fixed;
+            bottom: 18px;
+            left: 10px;
+            background: white;
+            border-radius: 50%;
+            padding: 10px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: solid;
+            border-color: #252525;
+        }
 
-.speed-number {
-    font-size: 16px;
-}
+        .speed-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1;
+            text-align: center;
+            font-weight: bold;
+        }
 
-.speed-unit {
-    font-size: 10px;
-}
+        .speed-number {
+            font-size: 16px;
+        }
+
+        .speed-unit {
+            font-size: 10px;
+        }
 
 
         .button-content {
@@ -463,20 +464,20 @@
 
         </div>
         <div id="bus-info-wrapper" style="display: none;">
-        <div class="info-panel">
-            <div class="info-item">
-                <img src="../img/distance.svg" alt="Distance" style="height: 22px; width: 22px;">
-                <span id="distance">Loading...</span>
+            <div class="info-panel">
+                <div class="info-item">
+                    <img src="../img/distance.svg" alt="Distance" style="height: 22px; width: 22px;">
+                    <span id="distance">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <img src="../img/time.svg" alt="Time" style="height: 22px; width: 22px;">
+                    <span id="time">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <img src="../img/speed.svg" alt="Speed" style="height: 22px; width: 22px;">
+                    <span id="speed">Loading...</span>
+                </div>
             </div>
-            <div class="info-item">
-                <img src="../img/time.svg" alt="Time" style="height: 22px; width: 22px;">
-                <span id="time">Loading...</span>
-            </div>
-            <div class="info-item">
-                <img src="../img/speed.svg" alt="Speed" style="height: 22px; width: 22px;">
-                <span id="speed">Loading...</span>
-            </div>
-        </div>
         </div>
         <div class="info-item2">
             <img src="../assets/images/location.svg" style="height: 25px; width: 25px" alt="Location Icon"
@@ -534,14 +535,14 @@
     <div class="follow-marker-button" onclick="toggleFollowMarker()">
         <img src="../img/follow.svg" alt="Follow Marker">
     </div>
-   <div id="speed-container">
-<div class="speed-indicator">
-    <div class="speed-content">
-        <span class="speed-number" id="speed-value">-</span>
-        <span class="speed-unit">Kmph</span>
+    <div id="speed-container" style="display: none;">
+        <div class="speed-indicator">
+            <div class="speed-content">
+                <span class="speed-number" id="speed-value">-</span>
+                <span class="speed-unit">Kmph</span>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 
 </body>
 
@@ -855,12 +856,13 @@
         infoBtn.addEventListener("click", function () {
             infoBtn.classList.toggle("expanded");
         });
-         if (localStorage.getItem('defaultBusStop')) {
-        document.getElementById('bus-info-wrapper').style.display = 'block';
-     }
-     else { 
-        document.getElementById('speed-container').style.display = 'block';
-    }
+
+        if (localStorage.getItem('defaultBusStop')) {
+            document.getElementById('bus-info-wrapper').style.display = 'block';
+        }
+        else {
+            document.getElementById('speed-container').style.display = 'block';
+        }
     };
 </script>
 
