@@ -3,9 +3,12 @@ var istTime = new Date().getHours();
 
 let previousBusLocation = [0, 0];
 let presentBusLocation = [0, 0];
+
 if(localStorage.getItem('defaultBusStop')){
   var studentStopLocation = localStorage.getItem('defaultBusStop');
+  studentStopLocation = [studentStopLocation["lat"], studentStopLocation["lng"]] ;
 }
+
 function getCookie(name) {
   const nameEQ = name + "=";
   const ca = document.cookie.split(";");
