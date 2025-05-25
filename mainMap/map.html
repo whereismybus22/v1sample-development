@@ -733,37 +733,37 @@
 <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
 <script>
     const allRoutes = [
-        ["route1", "Route 1", 447],
-        ["route2", "Route 2", 447],
-        ["route3", "Route 3", 447],
-        ["route4", "Route 4", 447],
+        ["route1", "Route 1", 477],
+        ["route2", "Route 2", 477],
+        ["route3", "Route 3", 477],
+        ["route4", "Route 4", 477],
         ["route5", "Route 5", 477],
-        ["route6", "Route 6", 447],
-        ["route7", "Route 7", 447],
-        ["route8", "Route 8", 447],
-        ["route9", "Route 9", 447],
+        ["route6", "Route 6", 477],
+        ["route7", "Route 7", 477],
+        ["route8", "Route 8", 477],
+        ["route9", "Route 9", 477],
         ["route10", "Route 10", 477],
-        ["route11", "Route 11", 447],
-        ["route12", "Route 12", 447],
-        ["route13", "Route 13", 447],
-        ["route14", "Route 14", 447],
+        ["route11", "Route 11", 477],
+        ["route12", "Route 12", 477],
+        ["route13", "Route 13", 477],
+        ["route14", "Route 14", 477],
         ["route15", "Route 15", 477],
-        ["route16", "Route 16", 447],
-        ["route17", "Route 17", 447],
-        ["route18", "Route 18", 447],
-        ["route19", "Route 19", 447],
+        ["route16", "Route 16", 477],
+        ["route17", "Route 17", 477],
+        ["route18", "Route 18", 477],
+        ["route19", "Route 19", 477],
         ["route20", "Route 20", 477],
-        ["route21", "Route 21", 447],
-        ["route22", "Route 22", 447],
-        ["route23", "Route 23", 447],
-        ["route24", "Route 24", 447]
+        ["route21", "Route 21", 477],
+        ["route22", "Route 22", 477],
+        ["route23", "Route 23", 477],
+        ["route24", "Route 24", 477]
     ];
     const thisRoute = localStorage.getItem('thisRoute') ;
     const matchedRoute = allRoutes.find(routeArr => routeArr[0] === thisRoute);
 
     const thisRouteDisplayName = matchedRoute ? matchedRoute[1] : null;
     const thisRouteID = matchedRoute ? matchedRoute[2] : null;
-    
+
     if (thisRouteDisplayName) {
         document.getElementById('routeNumber').textContent = thisRouteDisplayName;
     } else {
