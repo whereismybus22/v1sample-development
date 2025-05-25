@@ -201,21 +201,11 @@ async function fetchBusLocation() {
         });
       }
       /*fetch adreess*/
-       const address = await getAddressFromCoords({ lat: presentBusLocation[0], lon: presentBusLocation[1] });
-       document.getElementById("location").textContent = address;
+      const address = await getAddressFromCoords({ lat: presentBusLocation[0], lon: presentBusLocation[1] });
+      document.getElementById("location").textContent = address;
 
       const speedd = Math.round(filteredData.speed);
-      const result = await calculateDistanceTimeSpeed(
-        presentBusLocation,
-        toLocation,
-        filteredData.speed
-      );
-      document.getElementById("distance").textContent = result.distance;
-      document.getElementById("time").textContent = result.time;
-      document.getElementById("speed").textContent = `${speedd}kmph`;
-    } else {
-      if (shouldCalculateRoute === true) {
-        const speedd = Math.round(filteredData.speed);
+      if (localStorage.getItem("defaultBusStop") !== null) {
         const result = await calculateDistanceTimeSpeed(
           presentBusLocation,
           toLocation,
@@ -224,6 +214,26 @@ async function fetchBusLocation() {
         document.getElementById("distance").textContent = result.distance;
         document.getElementById("time").textContent = result.time;
         document.getElementById("speed").textContent = `${speedd}kmph`;
+      }
+      else {
+        document.getElementById("speed-value").textContent = speedd;
+      }
+    } else {
+      if (shouldCalculateRoute === true) {
+        const speedd = Math.round(filteredData.speed);
+        if (localStorage.getItem("defaultBusStop") !== null) {
+          const result = await calculateDistanceTimeSpeed(
+            presentBusLocation,
+            toLocation,
+            filteredData.speed
+          );
+          document.getElementById("distance").textContent = result.distance;
+          document.getElementById("time").textContent = result.time;
+          document.getElementById("speed").textContent = `${speedd}kmph`;
+        }
+        else {
+          document.getElementById("speed-value").textContent = speedd;
+        }
         shouldCalculateRoute = false;
       }
     }

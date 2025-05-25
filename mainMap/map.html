@@ -534,12 +534,13 @@
     <div class="follow-marker-button" onclick="toggleFollowMarker()">
         <img src="../img/follow.svg" alt="Follow Marker">
     </div>
-   
+   <div id="speed-container">
 <div class="speed-indicator">
     <div class="speed-content">
-        <span class="speed-number" id="speed-value">30</span>
+        <span class="speed-number" id="speed-value">-</span>
         <span class="speed-unit">Kmph</span>
     </div>
+</div>
 </div>
 
 </body>
@@ -857,6 +858,9 @@
          if (localStorage.getItem('defaultBusStop')) {
         document.getElementById('bus-info-wrapper').style.display = 'block';
      }
+     else { 
+        document.getElementById('speed-container').style.display = 'block';
+    }
     };
 </script>
 
