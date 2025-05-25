@@ -80,8 +80,7 @@ function renderRoutes(filter = "") {
             item.appendChild(span);
 
             item.addEventListener("click", () => {
-                const routeNumber = route[1].split(" ")[1];
-                alert(`Map page: ${routeNumber}`);
+                window.location='/'+route[0] ;
             });
 
             busList.appendChild(item);
