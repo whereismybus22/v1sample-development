@@ -19,7 +19,7 @@ body, html {
   flex-direction: column;
   background: white;
   padding: 16px;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   box-sizing: border-box;
   padding-top: 100px;
 }
@@ -27,8 +27,6 @@ body, html {
 .scroll-area {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 30px;
-  max-height: calc(100vh - 210px);
   padding-top: 5px;
 }
 
@@ -37,48 +35,6 @@ body, html {
   flex-direction: column;
   gap: 8px;
 }
-
-.footer-buttons {
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid #eee;
-  padding-top: 8px;
-  background-color: white;
-  padding-bottom: 15px;
-  position: sticky;
-  z-index: 10;
-}
-
-#cancelBtn, #saveBtn {
-  width: 48%;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-}
-
-#cancelBtn {
-  background: #e6e6ec;
-  color: #000;
-}
-
-#saveBtn {
-  background: #fcd34d;
-  color: #000;
-}
-
-
-.footer-buttons {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0 0;
-  border-top: 1px solid #eee;
-  background-color: white;
-  position: sticky;
-  bottom: 0;
-}
-
 
 .search-section {
   display: flex;
@@ -91,7 +47,7 @@ body, html {
   width: 92%;
   position: fixed;
   top: 70px; 
-   z-index: 1000;
+  z-index: 1000;
 }
 
 .search-icon,
@@ -149,45 +105,9 @@ body, html {
   font-family: "Manrope",sans-serif;
 }
 
-.footer-buttons {
-  border-top: 1px solid #eee;
-  position: fixed;
-  bottom: 10;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 400px;
-  width: 100%;
-  background: white;
-  padding: 10px 16px;
-  border-top: 1px solid #eee;
-  display: flex;
-  justify-content: space-between;
-  z-index: 100;
-}
-
-#cancelBtn, #saveBtn {
-  width: 48%;
-  padding: 10px;
-  border: none;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-#cancelBtn {
-  background: #e6e6ec;
-  color: #000;
-}
-
-#saveBtn {
-  background: #fcd34d;
-  color: #000;
-}
-
 .bus-list {
   flex: 1;
   overflow-y: auto;
-  margin-bottom: 16px;
   scrollbar-width: thin;
   scrollbar-color: #facc15 transparent; 
 }
@@ -212,31 +132,6 @@ body, html {
       border: 2px solid #463c9d;
       background-color: #f0f8ff;
 }
-
 .hidden {
   display: none;
-}
-#ackSaveok{
-  background-color: #fcd34d; 
-  border: none;
-  border-radius: 9999px;
-  width: 100px;
-  padding: 0.5rem 1.5rem;
-  font-weight: 600;
-  color: #000;
-  cursor: pointer;
-  font-size: 12px;
-  margin-right: 10px;
-}
-#ackCancelok{
-  background-color: #fcd34d; 
-  border: none;
-  border-radius: 9999px;
-  width: 100px;
-  padding: 0.5rem 1.5rem;
-  font-weight: 600;
-  color: #000;
-  cursor: pointer;
-  font-size: 12px;
-  margin-right: 10px;
 }

@@ -1,19 +1,8 @@
 const busList = document.getElementById("bus-list");
 const searchInput = document.getElementById("search");
 const clearSearch = document.getElementById("clearSearch");
-const saveBtn = document.getElementById("saveBtn");
-const cancelBtn = document.getElementById("cancelBtn");
 
 let selectedRoute = localStorage.getItem("defaultBusRoute") || null;
-
-const busSelectSave = document.getElementById("busSelectSave");
-const saveClosePopup = document.getElementById("saveClosePopup");
-const ackSaveok = document.getElementById("ackSaveok");
-
-const busSelectCancel = document.getElementById("busSelectCancel");
-const cancelClosePopup = document.getElementById("cancelClosePopup");
-const ackCancelok = document.getElementById("ackCancelok");
-
 const busRoutes = Array.from({ length: 24 }, (_, i) => `Route No ${i + 1}`);
 
 function renderRoutes(filter = "") {
@@ -129,36 +118,3 @@ clearSearch.addEventListener("click", () => {
     renderRoutes();
 });
 
-saveBtn.addEventListener("click", () => {
-    if (selectedRoute) {
-        localStorage.setItem("defaultBusRoute", selectedRoute);
-        busSelectSave.classList.remove("hidden");
-    } else {
-        busSelectCancel.classList.remove("hidden");
-    }
-});
-
-cancelBtn.addEventListener("click", () => {
-    if (!localStorage.getItem('defaultBusRoute')) {
-        busSelectCancel.classList.remove("hidden");
-    } else {
-        window.location.href = "/index.html";
-    }
-    selectedRoute = null;
-    document.querySelectorAll(".bus-item").forEach(el => el.classList.remove("selected"));
-});
-
-saveClosePopup.addEventListener("click", () => {
-    busSelectSave.classList.add("hidden");
-});
-ackSaveok.addEventListener("click", () => {
-    busSelectSave.classList.add("hidden");
-    window.location.href = "../pages/busstop.html";
-});
-
-cancelClosePopup.addEventListener("click", () => {
-    busSelectCancel.classList.add("hidden");
-});
-ackCancelok.addEventListener("click", () => {
-    busSelectCancel.classList.add("hidden");
-});
