@@ -105,17 +105,9 @@
             position: fixed;
             right: 6px;
             z-index: 1000;
-            background-color: transparent;
-            padding: 0 0;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            margin-top: 10px;
         }
 
-        #layerButton img {
-            width: 35px;
-            height: 35px;
-            margin-right: 2px;
-        }
 
         #layerButton.active {
             padding: 0px;
@@ -125,46 +117,28 @@
             position: fixed;
             right: 6px;
             z-index: 1000;
-            margin-top: 80px;
+            margin-top: 100px;
         }
 
-        .set-user-bus-button img {
-            width: 35px;
-            height: 35px;
-        }
         .refresh-button{
             position: fixed;
             right: 6px;
             z-index: 1000;
-            margin-top: 40px;
+            margin-top: 55px;
         }
-       .refresh-button img{
-        height: 38px;
-        width:38px;
-       }
     
         .directions-toGoogleMap {
             position: fixed;
             right: 6px;
             z-index: 1000;
-            margin-top: 120px;
-        }
-
-        .directions-toGoogleMap img {
-            width: 35px;
-            height: 35px;
+            margin-top: 145px;
         }
 
         .bus-miss {
             position: fixed;
             right: 6px;
             z-index: 1000;
-            margin-top: 160px;
-        }
-
-        .bus-miss img {
-            width: 35px;
-            height: 35px;
+            margin-top: 190px;
         }
 
         .floating-button {
@@ -296,6 +270,22 @@
     height: 25px; 
     margin-right: 3px;
 }
+.wrapper{
+display: flex;
+  justify-content: flex-end;
+}
+.control-btn{
+      width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 
     </style>
 </head>
@@ -332,21 +322,29 @@
         </div>
     </header>
     <div class="map-section">
-        <div id="map">
-            <div id="layerButton" onclick="toggleMapLayer()">
-                <img id="layerButtonImg" src="../img/toSatellite.svg" alt="Layers">
+        <div id="map" class="wrapper">
+            <div id="layerButton" class="control-btn" onclick="toggleMapLayer()">
+                <img id="layerButtonImg" src="../img/toSatellite.svg" height="25" width="25" alt="Layers">
             </div>
-            <div class="refresh-button">
-                <img id="refresh" src="../assets/images/refresh_page_icon.png" alt="Set User Bus">
+            <div class="wrapper">
+            <div class="refresh-button control-btn">
+                <img id="refresh" src="../assets/images/refresh_page_icon.png" height="25" width="25" alt="Set User Bus">
             </div>
-            <div class="set-user-bus-button" onclick="setUserBus()">
-                <img src="../img/follow_user.png" alt="Set User Bus">
             </div>
-            <div class="directions-toGoogleMap">
-                <img id="directionsGoogleMap" src="../img/directions.png" alt="Directions To Google Map ">
+             <div class="wrapper">
+            <div class="set-user-bus-button control-btn" onclick="setUserBus()">
+                <img src="../img/follow_user.png" height="25" width="25"  alt="Set User Bus">
             </div>
-            <div class="bus-miss">
-                <img id="busMiss" src="../img/busMiss.png" alt="Buss Miss ">
+            </div>
+            <div class="wrapper">
+            <div class="directions-toGoogleMap control-btn">
+                <img id="directionsGoogleMap" src="../img/directions.png" height="25" width="25" alt="Directions To Google Map ">
+            </div>
+            </div>
+            <div class="wrapper">  
+            <div class="bus-miss  control-btn">
+                <img id="busMiss" src="../img/busMiss.png" height="25" width="25" alt="Buss Miss ">
+            </div>
             </div>
         </div>
     </div>
@@ -452,15 +450,10 @@
     </div>
   </div>
 </div>
- <script src="../js/help.js"></script>
   <script src="../js/isIOS.js"></script>
-  <script src="../js/download.js"></script>
-  <script src="../js/skip.js"></script>
-  <script src="../js/contactus.js"></script>
   <script src="../js/menu.js"></script>
   <script src="../js/indexback.js"></script>
    <script src="../js/menucontactus.js"></script>
-  <script src="../js/drivercontact.js"></script>
   <script src="../js/share.js"></script>
   <script src="../js/tutorialvideo.js"></script>
   <script src="../js/standalone.js"></script>
