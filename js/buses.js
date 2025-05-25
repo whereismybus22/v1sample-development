@@ -9,7 +9,6 @@ if (selectedRoute) {
     selectedRoute = `Route No ${selectedRoute.replace("route", "")}`; 
 }
 
-
 const busSelectSave = document.getElementById("busSelectSave");
 const saveClosePopup = document.getElementById("saveClosePopup");
 const ackSaveok = document.getElementById("ackSaveok");
@@ -18,16 +17,42 @@ const busSelectCancel = document.getElementById("busSelectCancel");
 const cancelClosePopup = document.getElementById("cancelClosePopup");
 const ackCancelok = document.getElementById("ackCancelok");
 
-const busRoutes = Array.from({ length: 24 }, (_, i) => `Route No ${i + 1}`);
+const busRoutes = [
+    ["route1", "Route 1"],
+    ["route2", "Route 2"],
+    ["route3", "Route 3"],
+    ["route4", "Route 4"],
+    ["route5", "Route 5"],
+    ["route6", "Route 6"],
+    ["route7", "Route 7"],
+    ["route8", "Route 8"],
+    ["route9", "Route 9"],
+    ["route10", "Route 10"],
+    ["route11", "Route 11"],
+    ["route12", "Route 12"],
+    ["route13", "Route 13"],
+    ["route14", "Route 14"],
+    ["route15", "Route 15"],
+    ["route16", "Route 16"],
+    ["route17", "Route 17"],
+    ["route18", "Route 18"],
+    ["route19", "Route 19"],
+    ["route20", "Route 20"],
+    ["route21", "Route 21"],
+    ["route22", "Route 22"],
+    ["route23", "Route 23"],
+    ["route24", "Route 24"]
+];
 
 function renderRoutes(filter = "") {
     busList.innerHTML = "";
+
     busRoutes
-        .filter(route => route.toLowerCase().includes(filter.toLowerCase())) 
+        .filter(route => route[1].toLowerCase().includes(filter.toLowerCase())) 
         .forEach(route => {
             const item = document.createElement("div");
             item.className = "bus-item";
-            if (route === selectedRoute) {
+            if (route[1] === selectedRoute) {
                 item.classList.add("selected");
             }
 
@@ -63,16 +88,17 @@ function renderRoutes(filter = "") {
 <path d="M7.06184 18.6816C6.78249 18.6816 6.50941 18.7669 6.27714 18.9268C6.04487 19.0866 5.86383 19.3138 5.75693 19.5795C5.65003 19.8453 5.62206 20.1378 5.67655 20.4199C5.73105 20.7021 5.86557 20.9613 6.0631 21.1647C6.26063 21.3681 6.5123 21.5066 6.78629 21.5627C7.06027 21.6189 7.34426 21.5901 7.60235 21.48C7.86043 21.3699 8.08102 21.1835 8.23622 20.9443C8.39142 20.7051 8.47426 20.4238 8.47426 20.1362C8.47426 19.7504 8.32545 19.3804 8.06057 19.1077C7.79569 18.8349 7.43643 18.6816 7.06184 18.6816ZM35.3103 18.6816C35.0309 18.6816 34.7578 18.7669 34.5256 18.9268C34.2933 19.0866 34.1123 19.3138 34.0054 19.5795C33.8985 19.8453 33.8705 20.1378 33.925 20.4199C33.9795 20.7021 34.114 20.9613 34.3115 21.1647C34.5091 21.3681 34.7607 21.5066 35.0347 21.5627C35.3087 21.6189 35.5927 21.5901 35.8508 21.48C36.1089 21.3699 36.3295 21.1835 36.4847 20.9443C36.6399 20.7051 36.7227 20.4238 36.7227 20.1362C36.7227 19.7504 36.5739 19.3804 36.309 19.1077C36.0441 18.8349 35.6849 18.6816 35.3103 18.6816Z" fill="black"/>
 <path d="M19.7739 12.863H17.6553V14.3176H19.7739V12.863Z" fill="black"/>
 </svg>`;
+
             const span = document.createElement("span");
             span.className = "bus-text";
-            span.textContent = route;
+            span.textContent = route[1]; 
             item.appendChild(svg);
             item.appendChild(span);
 
             item.addEventListener("click", () => {
                 document.querySelectorAll(".bus-item").forEach(el => el.classList.remove("selected"));
                 item.classList.add("selected"); 
-                selectedRoute = route; 
+                selectedRoute = route[0]; 
             });
 
             busList.appendChild(item);
@@ -90,16 +116,15 @@ clearSearch.addEventListener("click", () => {
     renderRoutes();
 });
 
-
 saveBtn.addEventListener("click", () => {
-       if (selectedRoute) {
-           const routeNumber = selectedRoute.split(" ")[2];
-localStorage.setItem("defaultBusRoute", `route${routeNumber}`);
-           busSelectSave.classList.remove("hidden");
-       } else {
-           busSelectCancel.classList.remove("hidden");
-       }
-   });
+    if (selectedRoute) {
+        const routeNumber = selectedRoute.replace("route", ""); 
+        localStorage.setItem("defaultBusRoute", `route${routeNumber}`); 
+        busSelectSave.classList.remove("hidden");
+    } else {
+        busSelectCancel.classList.remove("hidden");
+    }
+});
 
 cancelBtn.addEventListener("click", () => {
     if (!localStorage.getItem('defaultBusRoute')) {
@@ -112,16 +137,18 @@ cancelBtn.addEventListener("click", () => {
 });
 
 saveClosePopup.addEventListener("click", () => {
-  busSelectSave.classList.add("hidden");
+    busSelectSave.classList.add("hidden");
 });
+
 ackSaveok.addEventListener("click", () => {
-  busSelectSave.classList.add("hidden");
-  window.location.href = "../pages/busstop.html";
+    busSelectSave.classList.add("hidden");
+    window.location.href = "../pages/busstop.html";
 });
 
 cancelClosePopup.addEventListener("click", () => {
-  busSelectCancel.classList.add("hidden");
+    busSelectCancel.classList.add("hidden");
 });
+
 ackCancelok.addEventListener("click", () => {
-  busSelectCancel.classList.add("hidden");
+    busSelectCancel.classList.add("hidden");
 });
