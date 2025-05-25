@@ -3,7 +3,33 @@ const searchInput = document.getElementById("search");
 const clearSearch = document.getElementById("clearSearch");
 
 let selectedRoute = localStorage.getItem("defaultBusRoute") || null;
-const busRoutes = Array.from({ length: 24 }, (_, i) => `Route No ${i + 1}`);
+// const busRoutes = Array.from({ length: 24 }, (_, i) => `Route No ${i + 1}`);
+const busRoutes = [
+        ["route1", "Route 1"],
+        ["route2", "Route 2"],
+        ["route3", "Route 3"],
+        ["route4", "Route 4"],
+        ["route5", "Route 5"],
+        ["route6", "Route 6"],
+        ["route7", "Route 7"],
+        ["route8", "Route 8"],
+        ["route9", "Route 9"],
+        ["route10", "Route 10"],
+        ["route11", "Route 11"],
+        ["route12", "Route 12"],
+        ["route13", "Route 13"],
+        ["route14", "Route 14"],
+        ["route15", "Route 15"],
+        ["route16", "Route 16"],
+        ["route17", "Route 17"],
+        ["route18", "Route 18"],
+        ["route19", "Route 19"],
+        ["route20", "Route 20"],
+        ["route21", "Route 21"],
+        ["route22", "Route 22"],
+        ["route23", "Route 23"],
+        ["route24", "Route 24"]
+    ];
 
 function renderRoutes(filter = "") {
     busList.innerHTML = "";
