@@ -3,7 +3,9 @@ var istTime = new Date().getHours();
 
 let previousBusLocation = [0, 0];
 let presentBusLocation = [0, 0];
-var studentStopLocation = [17.595621847810833, 78.44159359532637];
+if(localStorage.getItem('defaultBusStop')){
+  var studentStopLocation = localStorage.getItem('defaultBusStop');
+}
 function getCookie(name) {
   const nameEQ = name + "=";
   const ca = document.cookie.split(";");
