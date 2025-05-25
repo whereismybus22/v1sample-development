@@ -72,7 +72,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 5px;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid #919191;
         }
 
         .info-item {
@@ -141,7 +141,96 @@
             z-index: 1000;
             margin-top: 190px;
         }
+.info-toggle-btn{
+    position: fixed;
+            right: 6px;
+            z-index: 1000;
+            margin-top: 240px;
+}
+.info-toggle-btn.expanded {
+  width: 340px; 
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
 
+.info-text-wrapper {
+  overflow: hidden;
+  flex-grow: 1;
+  max-width: 0;
+  opacity: 0;
+  transition: max-width 0.3s ease, opacity 0.3s ease;
+}
+
+.info-toggle-btn.expanded .info-text-wrapper {
+  max-width: 300px;
+  opacity: 1;
+}
+
+.info-text {
+  white-space: nowrap;
+  font-size: 14px;
+  color: #333;
+  font-family: "Manrope", sans-serif;
+  margin-left: 15px;
+  display: inline-block;
+  margin-right: 3px;
+}
+
+.arrow-icon {
+  position: absolute;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  z-index: 2;
+}
+
+.left-arrow {
+  opacity: 1;
+}
+
+.info-toggle-btn.expanded .left-arrow {
+  opacity: 0;
+}
+
+.info-toggle-btn.expanded .right-arrow {
+  opacity: 1;
+}
+
+
+.icon-wrapper {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+.info-toggle-btn {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  height: 35px;
+  width: 60px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: width 0.3s ease, border-radius 0.3s ease;
+  padding: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  justify-content: center;
+  margin-right: -20px;
+  z-index: 1000;
+}
         .floating-button {
             position: fixed;
             right: 0;
@@ -159,18 +248,26 @@
             z-index: 1000;
         }
 
-        .follow-marker-button {
-            position: fixed;
-            bottom: 15px;
-            right: 10px;
-            background: yellow;
-            border: 1px solid black;
-            border-radius: 50%;
-            padding: 10px;
-            z-index: 1000;
-            width: 30px;
-            height: 30px;
-        }
+.follow-marker-button {
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    background: yellow;
+    border-radius: 50%;
+    padding: 10px;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.follow-marker-button img {
+    width: 25px;
+    height: 25px;
+}
+
 
         .button-content {
             display: flex;
@@ -181,6 +278,7 @@
             font-size: 18px;
             margin-right: 5px;
             font-weight: bold;
+            
         }
 
         .toggle-content {
@@ -296,7 +394,7 @@ display: flex;
             font-size: 10px;
             margin-top: 3px;
             display: flex;
-            justify-content: space-between;
+            justify-content: left;
             align-items: center;
         }
 
@@ -369,9 +467,26 @@ display: flex;
                 <img id="busMiss" src="../img/busMiss.png" height="25" width="25" alt="Buss Miss ">
             </div>
             </div>
+            <div class="wrapper">
+                <div  id="info-btn" class="info-toggle-btn">
+  <span class="info-text-wrapper">
+    <span class="info-text">
+       <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Click Here</a> to Know How to SetUp BusStop!
+    </span>
+  </span>
+  <span class="icon-wrapper">
+    <img src="../assets/images/left_expansion_icon.svg" class="arrow-icon left-arrow" height="24" width="24" alt="">
+    <img src="../assets/images/right-arrow.png" class="arrow-icon right-arrow" height="24" width="24" alt="">
+  </span>
+</div>
+            </div>
         </div>
     </div>
-    <img class="follow-marker-button" src="../img/follow.svg" alt="Follow Marker" onclick="toggleFollowMarker()">
+    <div class="follow-marker-button" onclick="toggleFollowMarker()">
+        <img  src="../img/follow.svg" alt="Follow Marker">
+    </div>
+   </body>
+
     <div id="floatingMenu" class="floating-menu hidden">
   <div class="menu-header">
     <img src="../assets/images/where-is-my-bus.svg" alt="Where is my Bus?" class="menu-logo" />
@@ -590,7 +705,24 @@ display: flex;
          document.getElementById("refresh").addEventListener("click", function () {
          location.reload();
         });
+window.onload = function() {
+  const infoBtn = document.getElementById("info-btn");
 
+  const isFirstVisit = localStorage.getItem("visitedBusStopPage") === null;
+  console.log("isFirstVisit:", isFirstVisit);
+
+
+  if (isFirstVisit) {
+    setTimeout(() => {
+    infoBtn.classList.add("expanded");
+    localStorage.setItem("visitedBusStopPage", "true");
+    }, 400);
+  }
+
+  infoBtn.addEventListener("click", function () {
+    infoBtn.classList.toggle("expanded");
+  });
+};
     </script>
 
     <script src="../busMiss.js" defer></script>
