@@ -200,6 +200,10 @@ async function fetchBusLocation() {
           animate: true,
         });
       }
+      /*fetch adreess*/
+       const address = await getAddressFromCoords({ lat: presentBusLocation[0], lon: presentBusLocation[1] });
+       document.getElementById("location").textContent = address;
+
       const speedd = Math.round(filteredData.speed);
       const result = await calculateDistanceTimeSpeed(
         presentBusLocation,
@@ -280,6 +284,20 @@ function toggleFollowMarker() {
   isUserBusSet = false;  // Variable to keep track of toggle state 
   document.querySelector('.set-user-bus-button img').src = "../img/follow_user.png";
 
+}
+async function getAddressFromCoords({ lat, lon }) {
+  const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+    const data = await response.json();
+    return data.display_name || 'Address not found';
+  } catch (error) {
+    console.error('Error fetching address:', error);
+    return 'Error fetching address';
+  }
 }
 
 var sourceLocation;

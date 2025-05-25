@@ -286,7 +286,20 @@ display: flex;
   align-items: center;
   cursor: pointer;
 }
+        .info-item2 {
+            display: flex;
+            padding: 5px;
+            margin: 5px;
+            color:#919191;
+            font-weight: 700;
+            font-family: 'Manrope', sans-serif;
+            font-size: 12px;
+            margin-top: 3px;
+        }
 
+  .location-icon{
+    margin-right: 10px;
+  }
     </style>
 </head>
 
@@ -320,7 +333,14 @@ display: flex;
                 <span id="speed">Loading...</span>
             </div>
         </div>
+        <div class="info-item2">
+    <img src="../assets/images/location.svg" alt="Location Icon" class="location-icon"/>
+    <span id="location" class="location-address">Fetching address...</span>
+</div>
+
+    </div>
     </header>
+
     <div class="map-section">
         <div id="map" class="wrapper">
             <div id="layerButton" class="control-btn" onclick="toggleMapLayer()">
