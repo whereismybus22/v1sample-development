@@ -1,4 +1,5 @@
 document.getElementById('skipButton2').addEventListener('click', function () {
+  sessionStorage.setItem('localAccessPagesSkip', true);
   window.location.href = '../pages/tutorial.html';
 });
 
