@@ -885,7 +885,7 @@
                 let topPosition = addressRect.bottom + window.scrollY + 15;
                 if (busInfoWrapper.style.display !== 'none' && busInfoWrapper.style.display !== '') {
                     const busInfoRect = busInfoWrapper.getBoundingClientRect();
-                    const busInfoBottom = busInfoRect.bottom + window.scrollY + 10;
+                    const busInfoBottom = busInfoRect.bottom + window.scrollY + 15;
                     topPosition = Math.max(topPosition, busInfoBottom);
                 }
 
