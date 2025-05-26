@@ -860,14 +860,14 @@
     window.onload = function () {
         const infoBtn = document.getElementById("info-btn");
 
-        const isFirstVisit = localStorage.getItem("visitedBusStopPage") === null;
+        const isFirstVisit = localStorage.getItem("visitedMapPage") === null;
         console.log("isFirstVisit:", isFirstVisit);
 
 
         if (isFirstVisit) {
             setTimeout(() => {
                 infoBtn.classList.add("expanded");
-                localStorage.setItem("visitedBusStopPage", "true");
+                localStorage.setItem("visitedMapPage", "true");
             }, 400);
         }
 
