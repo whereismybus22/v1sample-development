@@ -142,19 +142,13 @@
             margin-top: 190px;
         }
 
-        .info-toggle-btn {
-            position: fixed;
-            right: 6px;
-            z-index: 1000;
-            margin-top: 240px;
-        }
 
         .info-toggle-btn.expanded {
             width: 340px;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius:10px;
         }
 
         .info-text-wrapper {
@@ -175,9 +169,9 @@
             font-size: 14px;
             color: #333;
             font-family: "Manrope", sans-serif;
-            margin-left: 15px;
-            display: inline-block;
             margin-right: 3px;
+            display: inline-block;
+            margin-left: 10px;
         }
 
         .arrow-icon {
@@ -202,7 +196,7 @@
 
         .icon-wrapper {
             position: absolute;
-            left: 8px;
+            right: 8px;
             top: 50%;
             transform: translateY(-50%);
             width: 24px;
@@ -215,6 +209,9 @@
 
         .info-toggle-btn {
             position: fixed;
+            left: 6px;
+            top: 105px;
+            z-index: 1000;
             display: flex;
             align-items: center;
             height: 35px;
@@ -226,13 +223,12 @@
             overflow: hidden;
             transition: width 0.3s ease, border-radius 0.3s ease;
             padding: 0;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
             justify-content: center;
-            margin-right: -20px;
-            z-index: 1000;
+            margin-left: -20px;
         }
 
         .floating-button {
@@ -488,6 +484,22 @@
     </header>
 
     <div class="map-section">
+        <div class="wrapper">
+            <div id="info-btn" class="info-toggle-btn">
+                <span class="info-text-wrapper">
+                    <span class="info-text">
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Click Here</a> to Know
+                        How to SetUp BusStop!
+                    </span>
+                </span>
+                <span class="icon-wrapper">
+                    <img src="../assets/images/left_expansion_icon.svg" class="arrow-icon right-arrow" height="24"
+                        width="24" alt="">
+                    <img src="../assets/images/right-arrow.png" class="arrow-icon left-arrow" height="24" width="24"
+                        alt="">
+                </span>
+            </div>
+        </div>
         <div id="map" class="wrapper">
             <div id="layerButton" class="control-btn" onclick="toggleMapLayer()">
                 <img id="layerButtonImg" src="../img/toSatellite.svg" height="25" width="25" alt="Layers">
@@ -514,22 +526,7 @@
                     <img id="busMiss" src="../img/busMiss.png" height="25" width="25" alt="Buss Miss ">
                 </div>
             </div>
-            <div class="wrapper">
-                <div id="info-btn" class="info-toggle-btn">
-                    <span class="info-text-wrapper">
-                        <span class="info-text">
-                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Click Here</a> to Know
-                            How to SetUp BusStop!
-                        </span>
-                    </span>
-                    <span class="icon-wrapper">
-                        <img src="../assets/images/left_expansion_icon.svg" class="arrow-icon left-arrow" height="24"
-                            width="24" alt="">
-                        <img src="../assets/images/right-arrow.png" class="arrow-icon right-arrow" height="24"
-                            width="24" alt="">
-                    </span>
-                </div>
-            </div>
+
         </div>
     </div>
     <div class="follow-marker-button" onclick="toggleFollowMarker()">
@@ -758,7 +755,7 @@
         ["route23", "Route 23", 477],
         ["route24", "Route 24", 477]
     ];
-    const thisRoute = localStorage.getItem('thisRoute') ;
+    const thisRoute = localStorage.getItem('thisRoute');
     const matchedRoute = allRoutes.find(routeArr => routeArr[0] === thisRoute);
 
     const thisRouteDisplayName = matchedRoute ? matchedRoute[1] : null;
