@@ -12,14 +12,16 @@ body {
 
 #map-container {
   position: relative;
-  height: calc(100vh - 60px); /* Adjust for top bar and buttons */
+  height: calc(100vh - 50px); /* Adjust for top bar and buttons */
   width: 100%;
+  overflow: hidden;
 }
 
 
 #map {
   height: 100%;
   width: 100%;
+  backface-visibility: hidden;
 }
 
 .map-controls {
@@ -156,27 +158,12 @@ body {
   cursor: pointer;
 }
 
-.info-toggle-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  background-color: white;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  padding: 0;
-  position: relative;
-  overflow: visible; 
-  transition: width 0.3s ease, border-radius 0.3s ease;
-}
 
 .info-toggle-btn.expanded {
   width: auto;
   border-radius: 20px;
   padding: 0 12px;
+   transform: translateX(0);
 }
 
 .info-toggle-btn .info-text {
@@ -200,7 +187,7 @@ body {
 
 .map-controls {
   position: absolute;
-  top: 80px;
+  top: 65px;
   right: 10px;
   display: flex;
   flex-direction: column;
@@ -217,10 +204,10 @@ body {
 
 .info-toggle-btn.expanded {
   width: 340px; 
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .info-text-wrapper {
@@ -241,9 +228,8 @@ body {
   font-size: 14px;
   color: #333;
   font-family: "Manrope", sans-serif;
-  margin-left: 15px;
+  margin-right: 5px;
   display: inline-block;
-  margin-right: 3px;
 }
 
 .arrow-icon {
@@ -268,7 +254,7 @@ body {
 
 .icon-wrapper {
   position: absolute;
-  left: 8px;
+  right: 8px;
   top: 50%;
   transform: translateY(-50%);
   width: 24px;
@@ -290,14 +276,16 @@ body {
   cursor: pointer;
   overflow: hidden;
   transition: width 0.3s ease, border-radius 0.3s ease;
-  position: relative;
   padding: 0;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   justify-content: center;
-   margin-right: -20px;
+  margin-left: -20px;
+  z-index: 1000;
+  left: 6px;
+  top: 120px;
 }
 .hidden{
   display: none;
