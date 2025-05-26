@@ -148,7 +148,7 @@
             border-top-left-radius: 0px;
             border-bottom-left-radius: 0px;
             border-top-right-radius: 10px;
-            border-bottom-right-radius:10px;
+            border-bottom-right-radius: 10px;
         }
 
         .info-text-wrapper {
@@ -874,11 +874,33 @@
 
         if (localStorage.getItem('defaultBusStop')) {
             document.getElementById('bus-info-wrapper').style.display = 'block';
+            function adjustInfoButtonPosition() {
+                const busInfoWrapper = document.getElementById('bus-info-wrapper');
+                const addressContainer = document.querySelector('.info-item2');
+                const infoBtn = document.getElementById("info-btn");
+
+
+                const addressRect = addressContainer.getBoundingClientRect();
+
+                let topPosition = addressRect.bottom + window.scrollY + 15;
+                if (busInfoWrapper.style.display !== 'none' && busInfoWrapper.style.display !== '') {
+                    const busInfoRect = busInfoWrapper.getBoundingClientRect();
+                    const busInfoBottom = busInfoRect.bottom + window.scrollY + 10;
+                    topPosition = Math.max(topPosition, busInfoBottom);
+                }
+
+                infoBtn.style.top = `${topPosition}px`;
+            }
+
+            window.addEventListener('resize', adjustInfoButtonPosition);
+            adjustInfoButtonPosition();
+
         }
         else {
             document.getElementById('speed-container').style.display = 'block';
         }
     };
+
 </script>
 
 <script src="../busMiss.js" defer></script>
