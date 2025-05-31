@@ -779,56 +779,38 @@
 
     function setUserBus() {
         if (!isUserBusSet) {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        const latitude = position.coords.latitude;
-                        const longitude = position.coords.longitude;
-                        const bounds = L.latLngBounds([
-                            [latitude, longitude],
-                            presentBusLocation
-                        ]);
+            if (localStorage.getItem('userDeviceLocation')) {
 
-                        // Set user bus
-                        polyline.setStyle({ weight: 0 });
-                        map.once("zoomend", function () {
-                            polyline.setStyle({ weight: 3 });
-                        });
-                        map.flyToBounds(bounds, { padding: [40, 80, 40, 40] });
-                        document.querySelector('.set-user-bus-button img').src = "../img/follow_user_not.png";
-                        document.querySelector(".follow-marker-button").style.backgroundColor = "yellow";
-                        shouldFollowMarker = false;
+                const bounds = L.latLngBounds([
+                    [JSON.parse(localStorage.getItem('userDeviceLocation')).lat, JSON.parse(localStorage.getItem('userDeviceLocation')).lng],
+                    presentBusLocation
+                ]);
 
-                        // Add or update user location marker with custom icon
-                        if (userLocationMarker) {
-                            userLocationMarker.setLatLng([latitude, longitude]).update();
-                        } else {
-                            userLocationMarker = L.marker([latitude, longitude], { icon: userLocationIcon }).addTo(map);
-                        }
-                        userLocationMarker.bindPopup("<b>It's You</b>").openPopup();
+                // Set user bus
+                polyline.setStyle({ weight: 0 });
+                map.once("zoomend", function () {
+                    polyline.setStyle({ weight: 3 });
+                });
+                map.flyToBounds(bounds, { padding: [40, 80, 40, 40] });
 
-                        // Toggle the state
-                        isUserBusSet = !isUserBusSet;
-                    },
-                    (error) => {
-                        switch (error.code) {
-                            case error.PERMISSION_DENIED:
-                                alert("You denied the request for Geolocation. Please enable location services in your browser settings.");
-                                break;
-                            case error.POSITION_UNAVAILABLE:
-                                alert("Location information is unavailable.");
-                                break;
-                            case error.TIMEOUT:
-                                alert("The request to get your location timed out.");
-                                break;
-                            case error.UNKNOWN_ERROR:
-                                alert("An unknown error occurred.");
-                                break;
-                        }
-                    }
-                );
+                document.querySelector('.set-user-bus-button img').src = "../img/follow_user_not.png";
+                document.querySelector(".follow-marker-button").style.backgroundColor = "yellow";
+
+                shouldFollowMarker = false;
+
+                // Add or update user location marker with custom icon
+                if (userLocationMarker) {
+                    userLocationMarker.setLatLng([JSON.parse(localStorage.getItem('userDeviceLocation')).lat, JSON.parse(localStorage.getItem('userDeviceLocation')).lng]).update();
+                } else {
+                    userLocationMarker = L.marker([JSON.parse(localStorage.getItem('userDeviceLocation')).lat, JSON.parse(localStorage.getItem('userDeviceLocation')).lng], { icon: userLocationIcon }).addTo(map);
+                }
+                userLocationMarker.bindPopup("<b>It's You</b>").openPopup();
+
+                // Toggle the state
+                isUserBusSet = !isUserBusSet;
+
             } else {
-                alert("Geolocation is not supported by this browser.");
+                alert("need to ask location permission and set userDeviceLocation localStorage Variable.");
             }
         } else {
             // Reset to previous bounds or state
