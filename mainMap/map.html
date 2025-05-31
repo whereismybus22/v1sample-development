@@ -828,9 +828,8 @@
             document.querySelector('.set-user-bus-button img').src = "../img/follow_user.png";
             shouldFollowMarker = false;
 
-            // Hide user location marker
             if (userLocationMarker) {
-                userLocationMarker.remove();  // This hides the marker
+                userLocationMarker.remove();
                 userLocationMarker = null;
             }
 
@@ -862,41 +861,52 @@
             document.getElementById('bus-info-wrapper').style.display = 'block';
 function adjustInfoButtonPosition() {
     const infoBtn = document.getElementById("info-btn");
-    const header = document.querySelector("header");
+    const busInfoWrapper = document.getElementById("bus-info-wrapper");
+    const addressContainer = document.querySelector(".info-item2");
 
-    if (!infoBtn || !header) return;
+    if (!infoBtn || !addressContainer) return;
 
-    const headerBottom = header.getBoundingClientRect().bottom + window.scrollY;
+    const addressVisible = window.getComputedStyle(addressContainer).display !== "none";
+    const busInfoVisible = busInfoWrapper && window.getComputedStyle(busInfoWrapper).display !== "none";
 
-    // Optional: align with satellite button instead
-    const satelliteBtn = document.getElementById("satellite-layer-btn");
-    if (satelliteBtn && satelliteBtn.offsetParent !== null) {
-        const satelliteTop = satelliteBtn.getBoundingClientRect().top + window.scrollY;
-        infoBtn.style.top = `${satelliteTop}px`;
-    } else {
-        infoBtn.style.top = `${headerBottom + 12}px`; // 20px gap below the full header
+
+    const addressRect = addressContainer.getBoundingClientRect();
+    const addressBottom = addressRect.bottom + window.scrollY;
+
+    let finalTop = addressBottom + 20;
+
+    if (busInfoVisible) {
+        const busInfoRect = busInfoWrapper.getBoundingClientRect();
+        const busBottom = busInfoRect.bottom + window.scrollY;
+
+
+        finalTop = Math.max(busBottom, addressBottom) + 20;
     }
 
     infoBtn.style.position = "absolute";
+    infoBtn.style.top = `${finalTop}px`;
 }
 
-// Trigger on load, resize, scroll
 window.addEventListener("load", adjustInfoButtonPosition);
 window.addEventListener("resize", adjustInfoButtonPosition);
 window.addEventListener("scroll", adjustInfoButtonPosition);
 
-// Observe changes inside header
-const header = document.querySelector("header");
-if (header) {
-    const resizeObserver = new ResizeObserver(adjustInfoButtonPosition);
-    resizeObserver.observe(header);
-
+const addressContainer = document.querySelector(".info-item2");
+if (addressContainer) {
     const mutationObserver = new MutationObserver(adjustInfoButtonPosition);
-    mutationObserver.observe(header, {
+    mutationObserver.observe(addressContainer, {
         childList: true,
         subtree: true,
         characterData: true
     });
+
+    const resizeObserver = new ResizeObserver(adjustInfoButtonPosition);
+    resizeObserver.observe(addressContainer);
+}
+const busInfoWrapper = document.getElementById("bus-info-wrapper");
+if (busInfoWrapper) {
+    const resizeObserverBus = new ResizeObserver(adjustInfoButtonPosition);
+    resizeObserverBus.observe(busInfoWrapper);
 }
         }
         else {
