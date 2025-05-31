@@ -479,7 +479,7 @@
                 } else {
                     deviceLocationMarker = L.marker([latitude, longitude], {
                         icon: L.icon({
-                            iconUrl: 'img/deviceLocation.svg',
+                            iconUrl: '/img/deviceLocation.svg',
                             iconSize: [28, 28],
                             iconAnchor: [14, 28],
                             popupAnchor: [0, -28]
@@ -511,10 +511,10 @@
 
         function updateBusMarkers(busData) {
             const busIcons = {
-                bus1: 'img/one.svg',
-                bus2: 'img/two.svg',
-                bus9: 'img/nine.svg',
-                bus21: 'img/twentyone.svg'
+                bus1: '/img/one.svg',
+                bus2: '/img/two.svg',
+                bus9: '/img/nine.svg',
+                bus21: '/img/twentyone.svg'
             };
 
             // Clear previous markers from the cluster group
