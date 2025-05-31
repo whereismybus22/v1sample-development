@@ -3,7 +3,7 @@ var istTime = new Date().getHours();
 
 let previousBusLocation = [0, 0];
 let presentBusLocation = [0, 0];
-let toLocation ;
+let toLocation;
 
 
 if (localStorage.getItem('defaultBusStop')) {
@@ -211,8 +211,11 @@ async function fetchBusLocation() {
       /*fetch adreess*/
       const address = await getAddressFromCoords({ lat: presentBusLocation[0], lon: presentBusLocation[1] });
       document.getElementById("location").textContent = address;
-      map.invalidateSize();
-      map.fitBounds(polyline.getBounds(), { padding: [30, 30, 30, 30] });
+
+      if (!shouldFollowMarker) {
+        map.invalidateSize();
+        map.fitBounds(polyline.getBounds(), { padding: [40, 40, 40, 40] });
+      }
 
       const speedd = Math.round(filteredData.speed);
       if (localStorage.getItem("defaultBusStop") !== null) {
