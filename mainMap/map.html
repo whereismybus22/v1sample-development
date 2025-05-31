@@ -779,10 +779,10 @@
     });
 
     function setUserBus() {
-        if (!isUserBusSet) {
+        if (isUserBusSet == false) {
             if (localStorage.getItem('userDeviceLocation')) {
                  // Toggle the state
-                isUserBusSet = !isUserBusSet;
+                isUserBusSet = true;
 
                 const bounds = L.latLngBounds([
                     [JSON.parse(localStorage.getItem('userDeviceLocation')).latitude, JSON.parse(localStorage.getItem('userDeviceLocation')).longitude],
@@ -814,8 +814,8 @@
             }
         } else {
             // Toggle the state
-            isUserBusSet = !isUserBusSet;
-            
+            isUserBusSet = false;
+
             // Reset to previous bounds or state
             polyline.setStyle({ weight: 0 });
             map.once("zoomend", function () {
