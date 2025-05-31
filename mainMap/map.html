@@ -781,6 +781,8 @@
     function setUserBus() {
         if (!isUserBusSet) {
             if (localStorage.getItem('userDeviceLocation')) {
+                 // Toggle the state
+                isUserBusSet = !isUserBusSet;
 
                 const bounds = L.latLngBounds([
                     [JSON.parse(localStorage.getItem('userDeviceLocation')).latitude, JSON.parse(localStorage.getItem('userDeviceLocation')).longitude],
@@ -807,13 +809,13 @@
                 }
                 userLocationMarker.bindPopup("<b>It's You</b>").openPopup();
 
-                // Toggle the state
-                isUserBusSet = !isUserBusSet;
-
             } else {
                 alert("need to ask location permission and set userDeviceLocation localStorage Variable.");
             }
         } else {
+            // Toggle the state
+            isUserBusSet = !isUserBusSet;
+            
             // Reset to previous bounds or state
             polyline.setStyle({ weight: 0 });
             map.once("zoomend", function () {
@@ -829,8 +831,6 @@
                 userLocationMarker = null;
             }
 
-            // Toggle the state
-            isUserBusSet = !isUserBusSet;
         }
     }
 
