@@ -440,6 +440,9 @@
         .location-icon {
             margin-right: 10px;
         }
+        #info-btn {
+  position: absolute;
+}
     </style>
 </head>
 
@@ -479,12 +482,7 @@
             <img src="../assets/images/location.svg" style="height: 25px; width: 25px" alt="Location Icon"
                 class="location-icon" />
             <span id="location" class="location-address">Fetching address...</span>
-        </div>
-        </div>
-    </header>
-
-    <div class="map-section">
-        <div class="wrapper">
+            <div class="wrapper">
             <div id="info-btn" class="info-toggle-btn">
                 <span class="info-text-wrapper">
                     <span class="info-text">
@@ -500,6 +498,11 @@
                 </span>
             </div>
         </div>
+        </div>
+        </div>
+    </header>
+
+    <div class="map-section">
         <div id="map" class="wrapper">
             <div id="layerButton" class="control-btn" onclick="toggleMapLayer()">
                 <img id="layerButtonImg" src="../img/toSatellite.svg" height="25" width="25" alt="Layers">
@@ -857,27 +860,53 @@
 
         if (localStorage.getItem('defaultBusStop')) {
             document.getElementById('bus-info-wrapper').style.display = 'block';
-            function adjustInfoButtonPosition() {
-                const busInfoWrapper = document.getElementById('bus-info-wrapper');
-                const addressContainer = document.querySelector('.info-item2');
-                const infoBtn = document.getElementById("info-btn");
+function adjustInfoButtonPosition() {
+    const busInfoWrapper = document.getElementById('bus-info-wrapper');
+    const addressContainer = document.querySelector('.info-item2');
+    const infoBtn = document.getElementById("info-btn");
 
+    if (!addressContainer || !infoBtn) return;
 
-                const addressRect = addressContainer.getBoundingClientRect();
+    const addressVisible = window.getComputedStyle(addressContainer).display !== 'none';
+    const busInfoVisible = busInfoWrapper && window.getComputedStyle(busInfoWrapper).display !== 'none';
 
-                let topPosition = addressRect.bottom + window.scrollY + 15;
-                if (busInfoWrapper.style.display !== 'none' && busInfoWrapper.style.display !== '') {
-                    const busInfoRect = busInfoWrapper.getBoundingClientRect();
-                    const busInfoBottom = busInfoRect.bottom + window.scrollY + 15;
-                    topPosition = Math.max(topPosition, busInfoBottom);
-                }
+    const addressRect = addressContainer.getBoundingClientRect();
+    const addressBottom = addressRect.bottom + window.scrollY;
 
-                infoBtn.style.top = `${topPosition}px`;
-            }
+    let finalTop = addressBottom + 20;
 
-            window.addEventListener('resize', adjustInfoButtonPosition);
-            adjustInfoButtonPosition();
+    if (busInfoVisible) {
+        const busInfoRect = busInfoWrapper.getBoundingClientRect();
+        const busBottom = busInfoRect.bottom + window.scrollY;
+        finalTop = Math.max(addressBottom, busBottom) + 20;
+    }
 
+    infoBtn.style.position = 'absolute';
+    infoBtn.style.top = `${finalTop}px`;
+}
+
+window.addEventListener('load', adjustInfoButtonPosition);
+window.addEventListener('resize', adjustInfoButtonPosition);
+window.addEventListener('scroll', adjustInfoButtonPosition);
+
+const addressContainer = document.querySelector('.info-item2');
+if (addressContainer) {
+    const observer = new MutationObserver(adjustInfoButtonPosition);
+    observer.observe(addressContainer, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+    });
+
+    const resizeObserver = new ResizeObserver(adjustInfoButtonPosition);
+    resizeObserver.observe(addressContainer);
+}
+
+const busInfoWrapper = document.getElementById('bus-info-wrapper');
+if (busInfoWrapper) {
+    const resizeObserverBus = new ResizeObserver(adjustInfoButtonPosition);
+    resizeObserverBus.observe(busInfoWrapper);
+}
         }
         else {
             document.getElementById('speed-container').style.display = 'block';
