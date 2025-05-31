@@ -200,7 +200,7 @@ async function fetchBusLocation() {
           document.querySelector('.set-user-bus-button img').src = "../img/follow_user.png";
         });
       } else {
-        animateMarker(busMarker, previousBusLocation, presentBusLocation, 2000);
+        animateMarker(busMarker, previousBusLocation, presentBusLocation, 3000);
       }
 
       if (shouldFollowMarker) {
