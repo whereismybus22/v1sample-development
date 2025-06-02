@@ -235,7 +235,6 @@
             justify-content: center;
             margin-left: -20px;
             display: flex;
-            flex-direction: column;
         }
 
 
@@ -442,6 +441,7 @@
             margin-top: 3px;
             display: flex;
             justify-content: left;
+            justify-content: center;
             align-items: center;
         }
 
@@ -452,8 +452,20 @@
         .wrapper2 {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
             width: 100%;
+        }
+
+        .timer-circle {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -500,24 +512,26 @@
 
     <div class="map-section">
         <div id="map" class="wrapper">
-<div class="wrapper2">
-    <div id="info-btn" class="info-toggle-btn">
-        <span class="info-text-wrapper">
-            <span class="info-text">
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Click Here</a> to Know
-                How to SetUp BusStop!
-            </span>
-        </span>
-        <span class="icon-wrapper">
-            <img src="../assets/images/left_expansion_icon.svg" class="arrow-icon right-arrow" height="24" width="24" alt="">
-            <img src="../assets/images/right-arrow.png" class="arrow-icon left-arrow" height="24" width="24" alt="">
-        </span>
-    </div>
-    <div style="position: relative; z-index: 9999; display: flex; width: 100%;margin-top: 5px;">
-        <img src="../assets/images/loadingdots.gif" alt="Animation" style="width: 45px; height: 30px;">
-    </div>
-</div>
-
+            <div class="wrapper2">
+                <div id="info-btn" class="info-toggle-btn">
+                    <span class="info-text-wrapper">
+                        <span class="info-text">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Click Here</a> to Know
+                            How to SetUp BusStop!
+                        </span>
+                    </span>
+                    <span class="icon-wrapper">
+                        <img src="../assets/images/left_expansion_icon.svg" class="arrow-icon right-arrow" height="24"
+                            width="24" alt="">
+                        <img src="../assets/images/right-arrow.png" class="arrow-icon left-arrow" height="24" width="24"
+                            alt="">
+                    </span>
+                </div>
+                <div
+                    style="position: relative; z-index: 9999; display: flex; width: 100%; justify-content: flex-start; align-items: center;margin-top: 5px;">
+                    <div id="timer" class="timer-circle">10</div>
+                </div>
+            </div>
 
             <div id="layerButton" class="control-btn" onclick="toggleMapLayer()">
                 <img id="layerButtonImg" src="../img/toSatellite.svg" height="25" width="25" alt="Layers">
@@ -751,6 +765,26 @@
 <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
 <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 <script>
+    let countdown = 10; 
+    const timerElement = document.getElementById('timer');
+
+    function startTimer() {
+        timerElement.textContent = countdown; 
+        const interval = setInterval(() => {
+            countdown--; 
+            timerElement.textContent = countdown;
+
+            if (countdown < 0) {
+                clearInterval(interval); 
+                countdown = 10; 
+                startTimer(); 
+            }
+        }, 1000); 
+    }
+
+    startTimer();
+
+
     const allRoutes = [
         ["route1", "Route 1", 477],
         ["route2", "Route 2", 477],
