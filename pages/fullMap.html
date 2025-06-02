@@ -471,8 +471,28 @@
 
         async function updateDeviceLocationMarker() {
             try {
-                const position = await getCurrentDeviceLocation();
-                const { latitude, longitude } = position.coords;
+                
+                if (!localStorage.getItem("userDeviceLocation")) {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            (position) => {
+                                const coords = {
+                                    latitude: position.coords.latitude,
+                                    longitude: position.coords.longitude,
+                                };
+                                localStorage.setItem("userDeviceLocation", JSON.stringify(coords));
+                            },
+                            (error) => {
+                                console.error("Error getting location:", error.message);
+                            }
+                        );
+                    } else {
+                        console.error("Geolocation is not supported by this browser.");
+                    }
+                }
+
+                const storedLocation = localStorage.getItem("userDeviceLocation");
+                const { latitude, longitude } = JSON.parse(storedLocation);
 
                 if (deviceLocationMarker) {
                     deviceLocationMarker.setLatLng([latitude, longitude]);
@@ -485,7 +505,7 @@
                             popupAnchor: [0, -28]
                         })
                     })
-                        .bindPopup("<b>It's You</b>") // Add popup with text "It's You"
+                        .bindPopup("<b>It's You</b>")
                         .addTo(map);
 
                     deviceLocationMarker.openPopup();
@@ -496,17 +516,11 @@
                     });
                 }
 
-                // Center the map on the device location
+                // Optionally center the map
                 // map.setView([latitude, longitude], map.getZoom());
             } catch (error) {
-                console.error("Error getting device location:", error);
+                console.error("Error reading device location from localStorage:", error);
             }
-        }
-
-        function getCurrentDeviceLocation() {
-            return new Promise((resolve, reject) => {
-                navigator.geolocation.getCurrentPosition(resolve, reject);
-            });
         }
 
         function updateBusMarkers(busData) {
@@ -618,7 +632,7 @@
             document.write('<script defer src="/_vercel/insights/script.js"><\/script>');
         }
     </script>
-
+    <script src="../js/watchPosition.js"></script>
 </body>
 
 </html>
