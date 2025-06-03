@@ -765,21 +765,21 @@
 <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
 <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 <script>
-    let countdown = 10; 
+    let countdown = 10;
     const timerElement = document.getElementById('timer');
 
     function startTimer() {
-        timerElement.textContent = countdown; 
+        timerElement.textContent = countdown;
         const interval = setInterval(() => {
-            countdown--; 
+            countdown--;
             timerElement.textContent = countdown;
 
             if (countdown < 0) {
-                clearInterval(interval); 
-                countdown = 10; 
-                startTimer(); 
+                clearInterval(interval);
+                countdown = 10;
+                startTimer();
             }
-        }, 1000); 
+        }, 1000);
     }
 
     startTimer();
