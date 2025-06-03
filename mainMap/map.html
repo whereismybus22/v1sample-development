@@ -545,7 +545,7 @@
         </div>
         <div class="wrapper">
             <div class="set-user-bus-button control-btn" onclick="setUserBus()">
-                <img src="../img/follow_user.png" height="25" width="25" alt="Set User Bus">
+                <img src="../img/follow_user.png" height="25" width="25" alt="Set User Bus" onclick="window.location.reload();" >
             </div>
         </div>
         <div class="wrapper">
@@ -888,9 +888,6 @@
         }
     }
 
-    document.getElementById("refresh").addEventListener("click", function () {
-        window.location.reload();
-    });
     window.onload = function () {
         const infoBtn = document.getElementById("info-btn");
 
