@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Redirecting...</title>
@@ -7,7 +8,10 @@
 	<script>
 		// Immediate redirection logic
 		const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-		if ( isStandalone === false &&
+		if (!localStorage.getItem('login')) {
+			window.location = '/pages/login.html';
+		}
+		else if (isStandalone === false &&
 			!sessionStorage.getItem('pwaPageSkip')
 		) {
 			window.location = '/pages/index.html';
@@ -30,6 +34,8 @@
 		}
 	</script>
 </head>
+
 <body>
 </body>
+
 </html>
