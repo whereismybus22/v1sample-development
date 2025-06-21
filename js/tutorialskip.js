@@ -24,5 +24,5 @@ window.addEventListener('focus', () => {
 });
 document.getElementById('skiptobusesButton').addEventListener('click', function() {
   sessionStorage.setItem('tutorialPageSkip', true);
-  window.location.href = '../pages/buses.html'; 
+  window.location.href = '/index.html'; 
 });

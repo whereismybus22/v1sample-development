@@ -142,7 +142,7 @@ saveClosePopup.addEventListener("click", () => {
 
 ackSaveok.addEventListener("click", () => {
     busSelectSave.classList.add("hidden");
-    window.location.href = "../pages/busstop.html";
+    window.location.href = "/index.html";
 });
 
 cancelClosePopup.addEventListener("click", () => {
