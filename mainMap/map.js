@@ -186,7 +186,7 @@ async function fetchBusLocation() {
           document.querySelector(
             ".follow-marker-button"
           ).style.backgroundColor = "white";
-          map.flyTo(presentBusLocation, 19, {
+          map.flyTo(presentBusLocation, 17, {
             animate: true,
           });
           map.once("zoomend", function () {
@@ -204,7 +204,7 @@ async function fetchBusLocation() {
       }
 
       if (shouldFollowMarker) {
-        map.flyTo(presentBusLocation, 19, {
+        map.flyTo(presentBusLocation, 17, {
           animate: true,
         });
       }
@@ -256,7 +256,7 @@ async function fetchBusLocation() {
 }
 
 function filterData(data) {
-  const mlrInstitute = data.find((entry) => entry.title === "mlrit.whereismybus@gmail.com");
+  const mlrInstitute = data.find((entry) => entry.title === "spec.whereismybus@gmail.com");
   if (!mlrInstitute) return null;
 
   const item = mlrInstitute.items.find((item) => item.id === thisRouteID);
@@ -296,7 +296,7 @@ function toggleFollowMarker() {
   polyline.setStyle({ weight: 0 });
   document.querySelector(".follow-marker-button").style.backgroundColor =
     "white";
-  map.flyTo(presentBusLocation, 19, {
+  map.flyTo(presentBusLocation, 17, {
     animate: true,
   });
   map.once("zoomend", function () {
@@ -330,7 +330,7 @@ var polyline;
 var streetLayer = L.tileLayer(
   "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   {
-    maxZoom: 19,
+    maxZoom: 17,
     attribution: "© OpenStreetMap contributors",
   }
 );
@@ -338,7 +338,7 @@ var streetLayer = L.tileLayer(
 var satelliteLayer = L.tileLayer(
   "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
   {
-    maxZoom: 19,
+    maxZoom: 17,
     attribution: "© OpenStreetMap contributors",
   }
 );
@@ -354,7 +354,7 @@ var map = L.map("map", {
   attribution: "© OpenStreetMap contributors",
   layers: [streetLayer], // Default layer is street view
   zoomSnap: 0.25, // Adjust this value as needed
-}).setView([0, 0], 19);
+}).setView([0, 0], 17);
 
 var path = "";
 if (istTime >= 2 && istTime <= 13) {
@@ -383,7 +383,7 @@ fetch(path)
 
     sourceMarker.on("click", function () {
       polyline.setStyle({ weight: 0 });
-      map.flyTo(sourceLocation, 19, {
+      map.flyTo(sourceLocation, 17, {
         animate: true,
       });
       map.once("zoomend", function () {
@@ -404,7 +404,7 @@ fetch(path)
 
     destinationMarker.on("click", function () {
       polyline.setStyle({ weight: 0 });
-      map.flyTo(destinationLocation, 19, {
+      map.flyTo(destinationLocation, 17, {
         animate: true,
       });
       map.once("zoomend", function () {
@@ -447,7 +447,7 @@ if (studentStopLocation) {
 
   studentStopMarker.on("click", function () {
     polyline.setStyle({ weight: 0 });
-    map.flyTo(studentStopLocation, 19, {
+    map.flyTo(studentStopLocation, 17, {
       animate: true,
     });
     map.once("zoomend", function () {
